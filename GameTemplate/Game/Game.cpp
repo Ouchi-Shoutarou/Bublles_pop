@@ -22,6 +22,9 @@ bool Game::Start()
 	MainCamera().Update();
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 	m_skinModelRender->Init(L"modelData/unityChan.cmo");
+
+	m_sprite = NewGO<prefab::CSpriteRender>(0);
+	m_sprite->Init(L"sprite/card-600x423.dds",1280.0f/2,720.0f/2);
 	
 	return true;
 }

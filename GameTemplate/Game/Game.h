@@ -12,5 +12,9 @@ public:
 	bool Start();
 	void Update();
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;		//スキンモデルレンダラー。
+
+
+	prefab::CSpriteRender* m_sprite = nullptr;
+
 };
 

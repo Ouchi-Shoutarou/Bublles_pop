@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Game.h"
+#include  "Player.h"
 #include "tkEngine/light/tkDirectionLight.h"
 
 Game::Game()
@@ -12,6 +13,7 @@ Game::~Game()
 }
 bool Game::Start()
 {
+	NewGO<Player>(0);
 	//ƒJƒƒ‰‚ğİ’èB
 	MainCamera().SetTarget({ 0.0f, 70.0f, 0.0f });
 	MainCamera().SetNear(10.0f);

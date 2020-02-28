@@ -10,11 +10,18 @@ GameCamera::~GameCamera()
 {
 }
 
-bool GameCamera::start()
+bool GameCamera::Start()
 {
-	
-	//カメラを設定。
-	MainCamera().SetTarget({ 0.0f, 70.0f, 0.0f });
+	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
+	m_spriteRender->Init(L"sprite/真カーソル.dds", 1280, 720, true);
+	CQuaternion Rot2D;
+	Rot2D.SetRotationDeg(CVector3::AxisY, 180);
+	m_spriteRender->SetRotation(Rot2D);
+	m_position = { -20,80,0 };
+	m_spriteRender->SetPosition(m_position);
+
+		//カメラを設定。
+	MainCamera().SetTarget(m_position);
 	MainCamera().SetNear(10.0f);
 	MainCamera().SetFar(10000.0f);
 	MainCamera().SetPosition({ 0.0f, 70.0f, 200.0f });
@@ -25,5 +32,27 @@ bool GameCamera::start()
 
 void GameCamera::Update()
 {
+	if (Pad(0).IsPress(enButtonRight)) {
+		m_position.x -= 5.0f;
+	}
+	if (Pad(0).IsPress(enButtonLeft)) {
+		m_position.x += 5.0f;
+	}
+	if (Pad(0).IsPress(enButtonUp)) {
+		m_position.y += 5.0f;
+	}
+	if (Pad(0).IsPress(enButtonDown)) {
+		m_position.y -= 5.0f;
+	}
 
+	m_spriteRender->SetPosition(m_position);
+
+
+
+	CVector3 position = m_position;
+	position.y += 0.0f;
+	position.z += 300.0f;
+	MainCamera().SetTarget(m_position);
+	MainCamera().SetPosition(position);
+	MainCamera().Update();
 }

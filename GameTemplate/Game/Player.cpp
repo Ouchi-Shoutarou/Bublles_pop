@@ -24,7 +24,7 @@ bool Player::Start()
 void Player::Update()
 {
 	
-	if (Pad(0).IsPress(enButtonRight)) {
+	/*if (Pad(0).IsPress(enButtonRight)) {
 		m_position.x -= 5.0f;
 		qRot.SetRotationDeg(CVector3::AxisY, -90.0f);
 	}
@@ -42,7 +42,7 @@ void Player::Update()
 	}
 
 	m_skinModelRender->SetPosition(m_position);
-	m_skinModelRender->SetRotation(qRot);
+	m_skinModelRender->SetRotation(qRot);*/
 }
 
 

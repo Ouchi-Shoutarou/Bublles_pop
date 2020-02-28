@@ -48,5 +48,6 @@
     <ImageContentTask Include="Assets\sprite\card-600x423.jpg">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\真カーソル.png" />
   </ItemGroup>
 </Project>

@@ -79,7 +79,7 @@
     <ProjectGuid>{06EDC280-1187-4614-A248-E640C095FA6B}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -439,8 +439,8 @@
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <ExecutablePath>$(DXSDK_DIR)Utilities\bin\x64;$(DXSDK_DIR)Utilities\bin\x86;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\Program Files %28x86%29\Windows Kits\8.1\Include\um;$(ProjectDir);$(ProjectDir)/../;$(ProjectDir)/../tkEngine/Photon/;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)/../tkEngine/bulletPhysics/src;$(ProjectDir)/Src;$(ProjectDir)/EffekseerRuntime130/src/include;$(ProjectDir)/../tkEngine/EffekseerRuntime130/src/include</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Windows Kits\8.1\Lib\winv6.3\um\x64;$(ProjectDir)/x64/Preview_Low;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/../;$(ProjectDir)/../tkEngine/Photon/;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)/../tkEngine/bulletPhysics/src;$(ProjectDir)/Src;$(ProjectDir)/EffekseerRuntime130/src/include;$(ProjectDir)/../tkEngine/EffekseerRuntime130/src/include</IncludePath>
+    <LibraryPath>$(ProjectDir)/x64/Preview_Low;$(WindowsSDK_LibraryPath_x64);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|X64'">
     <LinkIncremental>false</LinkIncremental>
@@ -1099,6 +1099,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;D3DXFX_LARGEADDRESS_HANDLE;BT_NO_SIMD_OPERATOR_OVERLOADS;USE_LOW_SPEC_SETTINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
@@ -1348,7 +1349,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;dxguid.lib;winmm.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;xaudio2.lib;xinput.lib;dxguid.lib;winmm.lib;comctl32.lib;tkEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LargeAddressAware>true</LargeAddressAware>
@@ -1681,7 +1682,6 @@
     </ClCompile>
     <Link>
       <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>winmm.lib;comctl32.lib;tkEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -1763,6 +1763,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -1788,6 +1789,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameCamera.h" />
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />

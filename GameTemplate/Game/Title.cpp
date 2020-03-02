@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Title.h"
-
+#include "Player.h"
+#include "Stage.h"
 
 
 Title::Title()
@@ -14,6 +15,8 @@ Title::~Title()
 	DeleteGO(m_sprite);
 	DeleteGO(m_sprite_bottom);
 
+	m_stage = NewGO<Stage>(0);
+	m_player = NewGO<Player>(0);
 }
 
 bool Title::Start()

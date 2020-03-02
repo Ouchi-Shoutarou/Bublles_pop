@@ -16,9 +16,7 @@ Game::~Game()
 }
 bool Game::Start()
 {
-	m_player = NewGO<Player>(0);
 	m_gameCamera = NewGO<GameCamera>(0);
-	m_stage = NewGO<Stage>(0);
 	m_title = NewGO<Title>(0);
 
 	return true;

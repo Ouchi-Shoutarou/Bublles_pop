@@ -1,4 +1,6 @@
 #pragma once
+class Stage;
+class Player;
 class Title : public IGameObject
 {
 public :
@@ -10,6 +12,10 @@ public :
 	prefab::CSpriteRender* m_sprite;
 	prefab::CSpriteRender* m_sprite_bottom;
 	
+
+	Stage* m_stage = nullptr;
+	Player* m_player = nullptr;
+
 	bool Start();
 
 

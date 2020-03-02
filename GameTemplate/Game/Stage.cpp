@@ -17,7 +17,7 @@ bool Stage::Start()
 	m_skinModelRender->Init(L"modelData/ita.cmo");
 	m_position = { 0,0,0 };
 	m_skinModelRender->SetPosition(m_position);
-	pand.CreateMesh(CVector3::Zero, CQuaternion::Identity, CVector3::One, m_skinModelRender);
+	ita.CreateMesh(CVector3::Zero, CQuaternion::Identity, CVector3::One, m_skinModelRender);
 	return true;
 }
 

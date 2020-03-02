@@ -9,6 +9,6 @@ public:
 	void Update();
 	CVector3 m_position = CVector3::Zero;
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
-	CPhysicsStaticObject pand;
+	CPhysicsStaticObject ita;
 };
 

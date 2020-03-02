@@ -17,11 +17,12 @@ bool GameCamera::Start()
 	CQuaternion Rot2D;
 	Rot2D.SetRotationDeg(CVector3::AxisY, 180);
 	m_spriteRender->SetRotation(Rot2D);
-	m_position = { -20,80,0 };
-	m_spriteRender->SetPosition(m_position);
+	m_spriteRender->SetPivot({ 0.5f,0.5f });
+	//m_position = { -20,80,0 };
+	//m_spriteRender->SetPosition(m_position);
 
 		//ƒJƒƒ‰‚ğİ’èB
-	MainCamera().SetTarget(m_position);
+	MainCamera().SetTarget(CVector3::Zero);
 	MainCamera().SetNear(10.0f);
 	MainCamera().SetFar(10000.0f);
 	MainCamera().SetPosition({ 0.0f, 70.0f, 200.0f });

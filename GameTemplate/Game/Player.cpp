@@ -22,7 +22,7 @@ bool Player::Start()
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 	m_skinModelRender->Init(L"modelData/unityChan.cmo");
-	m_position = { 0,100,0 };
+	//m_position = { 0,0,0 };
 	m_skinModelRender->SetPosition(m_position);
 	
 	return true;
@@ -44,7 +44,7 @@ void Player::Move()
 	//XZ成分の移動速度をクリア。
 	m_moveSpeed.x = 0.0f;
 	m_moveSpeed.z = 0.0f;
-	//m_moveSpeed.y -= 980.0f * GameTime().GetFrameDeltaTime();
+	m_moveSpeed.y -= 980.0f * GameTime().GetFrameDeltaTime();
 	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
 
@@ -68,7 +68,7 @@ void Player::Update()
 	CQuaternion qBias;
 	qBias.SetRotationDeg(CVector3::AxisX, 180.0f);	//3dsMaxで設定されているアニメーションでキャラが回転しているので、補正を入れる。
 	m_skinModelRender->SetPosition(m_position);
-	m_skinModelRender->SetRotation(qBias);
+	//m_skinModelRender->SetRotation(qBias);
 
 }
 

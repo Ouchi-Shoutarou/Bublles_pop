@@ -6,6 +6,7 @@
 class GameCamera;
 class Player;
 class Stage;
+class Title;
 class Game : public IGameObject
 {
 public:
@@ -17,6 +18,7 @@ public:
 	Player* m_player = nullptr;
 	GameCamera* m_gameCamera = nullptr;
 	Stage* m_stage = nullptr;
+	Title* m_title = nullptr;
 
 	prefab::CSpriteRender* m_sprite = nullptr;
 

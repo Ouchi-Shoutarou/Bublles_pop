@@ -8,6 +8,8 @@ GameCamera :: GameCamera()
 
 GameCamera::~GameCamera()
 {
+	DeleteGO(m_spriteRender);
+
 }
 
 bool GameCamera::Start()

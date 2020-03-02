@@ -9,6 +9,7 @@ Player::Player()
 
 Player::~Player()
 {
+	DeleteGO(m_skinModelRender);
 }
 
 bool Player::Start()

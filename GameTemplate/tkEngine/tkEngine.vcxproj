@@ -1048,6 +1048,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="..\Game\Assets\modelData\kamekin.FBX" />
     <MeshContentTask Include="Assets\modelData\preset\vector.FBX">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\Assets\modelData\preset\%(Filename).cmo</ContentOutput>
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug_Middle|x64'">$(SolutionDir)\Assets\modelData\preset\%(Filename).cmo</ContentOutput>
@@ -1059,6 +1060,9 @@
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Preview_Low|x64'">$(SolutionDir)\Assets\modelData\preset\%(Filename).cmo</ContentOutput>
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Preview_Middle|x64'">$(SolutionDir)\Assets\modelData\preset\%(Filename).cmo</ContentOutput>
     </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Game\Assets\modelData\kinme.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

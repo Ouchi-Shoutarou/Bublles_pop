@@ -763,5 +763,13 @@
     <MeshContentTask Include="Assets\modelData\preset\vector.FBX">
       <Filter>Assets\modelData\preset</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="..\Game\Assets\modelData\kamekin.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Game\Assets\modelData\kinme.png">
+      <Filter>Assets\modelData</Filter>
+    </Image>
   </ItemGroup>
 </Project>

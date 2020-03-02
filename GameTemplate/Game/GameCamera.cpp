@@ -32,7 +32,7 @@ bool GameCamera::Start()
 
 void GameCamera::Update()
 {
-	if (Pad(0).IsPress(enButtonRight)) {
+	/*if (Pad(0).IsPress(enButtonRight)) {
 		m_position.x -= 5.0f;
 	}
 	if (Pad(0).IsPress(enButtonLeft)) {
@@ -43,11 +43,17 @@ void GameCamera::Update()
 	}
 	if (Pad(0).IsPress(enButtonDown)) {
 		m_position.y -= 5.0f;
-	}
+	}*/
 
 	m_spriteRender->SetPosition(m_position);
 
+	m_moveSpeed.x = Pad(0).GetRStickXF() * -7.0f;
 
+	m_moveSpeed.y = Pad(0).GetRStickYF() * 7.0f;
+
+	m_position += m_moveSpeed;
+
+	m_spriteRender->SetPosition(m_position);
 
 	CVector3 position = m_position;
 	position.y += 0.0f;

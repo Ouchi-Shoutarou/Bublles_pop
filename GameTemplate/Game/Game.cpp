@@ -5,7 +5,7 @@
 #include"Stage.h"
 #include "tkEngine/light/tkDirectionLight.h"
 #include"GameCamera.h"
-
+#include "FungusGenerator.h"
 
 Game::Game()
 {
@@ -27,6 +27,20 @@ bool Game::Start()
 	m_stage = NewGO<Stage>(0);
 	m_player = NewGO<Player>(0);
 
+	m_level.Init(L"level/kinlevelme.tkl", [&](LevelObjectData& objData) {
+
+
+		if (objData.EqualObjectName(L"kamekin") == true) {
+
+			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
+			m_fungus_generator->position = objData.position;
+
+			return true;
+		}
+
+		return false;
+	});
+	
 
 	return true;
 }
@@ -41,3 +55,5 @@ void Game::Update()
 
 
 }
+
+

@@ -23,6 +23,8 @@
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="Fungus.cpp" />
+    <ClCompile Include="FungusGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -34,6 +36,8 @@
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="Fungus.h" />
+    <ClInclude Include="FungusGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

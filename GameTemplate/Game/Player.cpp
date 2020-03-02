@@ -49,6 +49,13 @@ void Player::Move()
 	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
 
+	if (Pad(0).IsTrigger(enButtonA) //Aボタンが押されたら
+		&& m_charaCon.IsOnGround()  //かつ、地面に居たら
+		) {
+		//ジャンプする。
+		m_moveSpeed.y = 400.0f;	//上方向に速度を設定して、
+	}
+
 	m_position = m_charaCon.Execute(m_moveSpeed);
 }
 

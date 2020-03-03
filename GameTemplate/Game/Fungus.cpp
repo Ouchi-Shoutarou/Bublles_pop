@@ -22,13 +22,24 @@ void Fungus::SetSkinModel()
 	m_skin = NewGO<prefab::CSkinModelRender>(0);
 
 	m_skin->SetPosition(fungus_position);
+
+	float t = Random().GetRandDouble();
+	float k = Random().GetRandDouble();
+	float h = Random().GetRandDouble();
+
+	fungus_Speed.x = CMath::Lerp(t, -10.0f, 10.0f);
+	fungus_Speed.y = CMath::Lerp(k, -10.0f, 10.0f);
+	fungus_Speed.z = CMath::Lerp(h, -10.0f, 10.0f);
 }
 
 void Fungus::Move()
 {
-	fungus_Speed.x = 3.0f;
-	fungus_Speed.y = 3.0f;
-	fungus_Speed.z = 3.0f;
+
+
+	
+
+
+
 
 
 	fungus_position += fungus_Speed;
@@ -38,7 +49,7 @@ void Fungus::Move()
 	m_timer++;
 
 
-	if (m_timer == 90) {
+	if (m_timer == 300) {
 
 		DeleteGO(this);
 	}

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "FungusGenerator.h"
-#include "Fungus.h"
+#include "Kfungus.h"
 
 bool FungusGenerator::Start()
 {
@@ -25,6 +25,8 @@ void FungusGenerator::Update()
 
 void FungusGenerator::Generator_Fungus()
 {
-	Fungus* m_fungus=NewGO<Fungus>(0, script_me);
-	m_fungus->fungus_position = position;
+	Kfungus* k_fungus=NewGO<Kfungus>(0, script_me);
+	k_fungus->fungus_position = position;
+
+	
 }

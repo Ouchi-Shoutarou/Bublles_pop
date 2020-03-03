@@ -1,4 +1,5 @@
 #pragma once
+
 class Fungus :public IGameObject
 {
 
@@ -9,9 +10,10 @@ public:
 
 	prefab::CSkinModelRender* m_skin;
 
-	bool Start();
 
-	void Update();
+	void SetSkinModel();
+
+	void Move();
 
 	CVector3 fungus_position=CVector3::Zero;
 

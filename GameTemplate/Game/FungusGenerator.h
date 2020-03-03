@@ -1,5 +1,5 @@
 #pragma once
-class Fungus;
+class Kfungus;
 class FungusGenerator :public IGameObject
 {
 

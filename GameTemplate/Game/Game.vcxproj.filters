@@ -25,6 +25,7 @@
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Fungus.cpp" />
     <ClCompile Include="FungusGenerator.cpp" />
+    <ClCompile Include="Kfungus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -38,6 +39,7 @@
     <ClInclude Include="Title.h" />
     <ClInclude Include="Fungus.h" />
     <ClInclude Include="FungusGenerator.h" />
+    <ClInclude Include="Kfungus.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -49,6 +51,7 @@
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\ita.FBX" />
+    <MeshContentTask Include="Assets\modelData\kkin.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">
@@ -64,5 +67,8 @@
     <ImageContentTask Include="Assets\sprite\bottom.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\modelData\kresorcekin.png" />
   </ItemGroup>
 </Project>

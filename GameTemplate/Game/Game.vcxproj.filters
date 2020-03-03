@@ -26,6 +26,7 @@
     <ClCompile Include="Fungus.cpp" />
     <ClCompile Include="FungusGenerator.cpp" />
     <ClCompile Include="Kfungus.cpp" />
+    <ClCompile Include="MeFungus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -40,6 +41,7 @@
     <ClInclude Include="Fungus.h" />
     <ClInclude Include="FungusGenerator.h" />
     <ClInclude Include="Kfungus.h" />
+    <ClInclude Include="MeFungus.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

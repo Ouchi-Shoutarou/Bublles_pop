@@ -1768,6 +1768,7 @@
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="Kfungus.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MeFungus.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -1798,6 +1799,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="Kfungus.h" />
+    <ClInclude Include="MeFungus.h" />
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="Stage.h" />

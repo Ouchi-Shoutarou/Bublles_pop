@@ -33,7 +33,7 @@ bool Game::Start()
 		if (objData.EqualObjectName(L"kamekin") == true) {
 
 			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
-			m_fungus_generator->position = objData.position;
+			m_fungus_generator->me_position = objData.position;
 
 			return true;
 		}

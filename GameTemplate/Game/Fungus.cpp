@@ -17,7 +17,9 @@ Fungus::~Fungus()
 
 
 void Fungus::SetSkinModel()
-{	m_skin = NewGO<prefab::CSkinModelRender>(0);
+{	
+	
+	m_skin = NewGO<prefab::CSkinModelRender>(0);
 
 	m_skin->SetPosition(fungus_position);
 }
@@ -33,5 +35,11 @@ void Fungus::Move()
 
 	m_skin->SetPosition(fungus_position);
 
+	m_timer++;
 
+
+	if (m_timer == 90) {
+
+		DeleteGO(this);
+	}
 }

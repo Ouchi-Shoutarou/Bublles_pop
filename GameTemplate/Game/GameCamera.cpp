@@ -35,19 +35,6 @@ bool GameCamera::Start()
 
 void GameCamera::Update()
 {
-	/*if (Pad(0).IsPress(enButtonRight)) {
-		m_position.x -= 5.0f;
-	}
-	if (Pad(0).IsPress(enButtonLeft)) {
-		m_position.x += 5.0f;
-	}
-	if (Pad(0).IsPress(enButtonUp)) {
-		m_position.y += 5.0f;
-	}
-	if (Pad(0).IsPress(enButtonDown)) {
-		m_position.y -= 5.0f;
-	}*/
-
 	m_spriteRender->SetPosition(m_position);
 
 	m_moveSpeed.x = Pad(0).GetRStickXF() * -7.0f;
@@ -64,4 +51,5 @@ void GameCamera::Update()
 	MainCamera().SetTarget(m_position);
 	MainCamera().SetPosition(position);
 	MainCamera().Update();
+
 }

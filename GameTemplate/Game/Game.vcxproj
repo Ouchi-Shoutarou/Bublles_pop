@@ -1766,6 +1766,7 @@
     <ClCompile Include="FungusGenerator.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="GFungus.cpp" />
     <ClCompile Include="Kfungus.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeFungus.cpp" />
@@ -1791,6 +1792,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Preview_Middle|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Preview_Low|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TFungus.cpp" />
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -1798,18 +1800,22 @@
     <ClInclude Include="FungusGenerator.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="GFungus.h" />
     <ClInclude Include="Kfungus.h" />
     <ClInclude Include="MeFungus.h" />
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TFungus.h" />
     <ClInclude Include="Title.h" />
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\gkin.FBX" />
     <MeshContentTask Include="Assets\modelData\ita.FBX" />
     <MeshContentTask Include="Assets\modelData\kkin.FBX" />
+    <MeshContentTask Include="Assets\modelData\Tkin.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>
   <ItemGroup>

@@ -38,6 +38,30 @@ bool Game::Start()
 			return true;
 		}
 
+		if (objData.EqualObjectName(L"gkin") == true) {
+
+			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
+			m_fungus_generator->g_position = objData.position;
+
+			return true;
+		}
+
+		if (objData.EqualObjectName(L"kkin") == true) {
+
+			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
+			m_fungus_generator->k_position = objData.position;
+
+			return true;
+		}
+
+		if (objData.EqualObjectName(L"Tkin") == true) {
+
+			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
+			m_fungus_generator->t_position = objData.position;
+
+			return true;
+		}
+
 		return false;
 	});
 	

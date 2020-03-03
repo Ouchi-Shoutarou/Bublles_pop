@@ -2,6 +2,8 @@
 #include "FungusGenerator.h"
 #include "Kfungus.h"
 #include "MeFungus.h"
+#include "TFungus.h"
+#include "GFungus.h"
 
 bool FungusGenerator::Start()
 {
@@ -32,4 +34,9 @@ void FungusGenerator::Generator_Fungus()
 	MeFungus* me_fungus = NewGO<MeFungus>(0, script_me);
 	me_fungus->fungus_position = me_position;
 
+	TFungus* t_fungus = NewGO<TFungus>(0, script_me);
+	t_fungus->fungus_position = t_position;
+
+	GFungus* g_fungus = NewGO<GFungus>(0, script_me);
+	g_fungus->fungus_position = g_position;
 }

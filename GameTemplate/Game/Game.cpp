@@ -25,7 +25,7 @@ bool Game::Start()
 {
 	m_gameCamera = NewGO<GameCamera>(0);
 	m_stage = NewGO<Stage>(0);
-	m_player = NewGO<Player>(0);
+	m_player = NewGO<Player>(0,"ƒvƒŒƒCƒ„[");
 
 	m_level.Init(L"level/kinlevelme.tkl", [&](LevelObjectData& objData) {
 

@@ -52,4 +52,5 @@ void GameCamera::Update()
 	MainCamera().SetPosition(position);
 	MainCamera().Update();
 
+	
 }

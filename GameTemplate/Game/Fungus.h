@@ -16,6 +16,9 @@ public:
 
 	void Move();
 
+
+	void Bond();
+
 	CVector3 fungus_position=CVector3::Zero;
 
 	CVector3 fungus_Speed ;

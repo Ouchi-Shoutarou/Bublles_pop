@@ -35,16 +35,12 @@ void Fungus::SetSkinModel()
 void Fungus::Move()
 {
 
-
-	
-
-
-
-
-
 	fungus_position += fungus_Speed;
 
 	m_skin->SetPosition(fungus_position);
+
+	//////GameTime().GetFrameDeltaTime();
+
 
 	m_timer++;
 
@@ -53,4 +49,13 @@ void Fungus::Move()
 
 		DeleteGO(this);
 	}
+}
+
+
+
+void Fungus::Bond() {
+
+
+
+
 }

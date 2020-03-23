@@ -29,6 +29,7 @@
     <ClCompile Include="MeFungus.cpp" />
     <ClCompile Include="GFungus.cpp" />
     <ClCompile Include="TFungus.cpp" />
+    <ClCompile Include="Core_A.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -46,6 +47,7 @@
     <ClInclude Include="MeFungus.h" />
     <ClInclude Include="GFungus.h" />
     <ClInclude Include="TFungus.h" />
+    <ClInclude Include="Core_A.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -60,6 +62,8 @@
     <MeshContentTask Include="Assets\modelData\kkin.FBX" />
     <MeshContentTask Include="Assets\modelData\Tkin.FBX" />
     <MeshContentTask Include="Assets\modelData\gkin.FBX" />
+    <MeshContentTask Include="Assets\modelData\kakukin.FBX" />
+    <MeshContentTask Include="Assets\modelData\flame.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">

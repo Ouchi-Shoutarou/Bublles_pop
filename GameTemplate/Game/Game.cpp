@@ -17,6 +17,7 @@ Game::~Game()
 	DeleteGO(m_gameCamera);
 	DeleteGO(m_stage);
 	DeleteGO(m_player);
+	
 
 }
 
@@ -27,44 +28,9 @@ bool Game::Start()
 	m_stage = NewGO<Stage>(0);
 	m_player = NewGO<Player>(0,"ÉvÉåÉCÉÑÅ[");
 
-	m_level.Init(L"level/kinlevelme.tkl", [&](LevelObjectData& objData) {
+	m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
 
 
-		if (objData.EqualObjectName(L"kamekin") == true) {
-
-			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
-			m_fungus_generator->me_position = objData.position;
-
-			return true;
-		}
-
-		if (objData.EqualObjectName(L"gkin") == true) {
-
-			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
-			m_fungus_generator->g_position = objData.position;
-
-			return true;
-		}
-
-		if (objData.EqualObjectName(L"kkin") == true) {
-
-			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
-			m_fungus_generator->k_position = objData.position;
-
-			return true;
-		}
-
-		if (objData.EqualObjectName(L"Tkin") == true) {
-
-			m_fungus_generator = NewGO<FungusGenerator>(0, script_me);
-			m_fungus_generator->t_position = objData.position;
-
-			return true;
-		}
-
-		return false;
-	});
-	
 
 	return true;
 }

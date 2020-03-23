@@ -28,11 +28,13 @@ public:
 
 	int fungus_number;
 
-	CLevel m_level;
-
 	int generator_timer = 0;
 
 	prefab::CSpriteRender* m_sprite = nullptr;
+
+
+
+
 
 };
 

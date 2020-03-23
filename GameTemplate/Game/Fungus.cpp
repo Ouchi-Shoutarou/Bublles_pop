@@ -27,10 +27,11 @@ void Fungus::SetSkinModel()
 	float k = Random().GetRandDouble();
 	float h = Random().GetRandDouble();
 
-	fungus_Speed.x = CMath::Lerp(t, -10.0f, 10.0f);
-	fungus_Speed.y = CMath::Lerp(k, -10.0f, 10.0f);
-	fungus_Speed.z = CMath::Lerp(h, -10.0f, 10.0f);
+	fungus_Speed.x = CMath::Lerp(t, -7.0f, 7.0f);
+	fungus_Speed.y = CMath::Lerp(k, -7.0f, 7.0f);
+	fungus_Speed.z = CMath::Lerp(h, -7.0f, 7.0f);
 }
+
 
 void Fungus::Move()
 {
@@ -38,9 +39,6 @@ void Fungus::Move()
 	fungus_position += fungus_Speed;
 
 	m_skin->SetPosition(fungus_position);
-
-	//////GameTime().GetFrameDeltaTime();
-
 
 	m_timer++;
 
@@ -55,6 +53,8 @@ void Fungus::Move()
 
 void Fungus::Bond() {
 
+	//CVector3 Length=fungus_position-
+	//if()
 
 
 

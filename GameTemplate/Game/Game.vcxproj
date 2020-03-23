@@ -1762,6 +1762,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bond_Fungus.cpp" />
+    <ClCompile Include="Core_A.cpp" />
     <ClCompile Include="Fungus.cpp" />
     <ClCompile Include="FungusGenerator.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -1796,6 +1798,8 @@
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bond_Fungus.h" />
+    <ClInclude Include="Core_A.h" />
     <ClInclude Include="Fungus.h" />
     <ClInclude Include="FungusGenerator.h" />
     <ClInclude Include="Game.h" />
@@ -1812,8 +1816,11 @@
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\bond.FBX" />
+    <MeshContentTask Include="Assets\modelData\flame.FBX" />
     <MeshContentTask Include="Assets\modelData\gkin.FBX" />
     <MeshContentTask Include="Assets\modelData\ita.FBX" />
+    <MeshContentTask Include="Assets\modelData\kakukin.FBX" />
     <MeshContentTask Include="Assets\modelData\kkin.FBX" />
     <MeshContentTask Include="Assets\modelData\Tkin.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />

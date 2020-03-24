@@ -1,4 +1,6 @@
 #pragma once
+#include"Game.h"
+#include"Player.h"
 class GameCamera :public IGameObject
 {
 public:
@@ -10,5 +12,7 @@ public:
 	CVector3 m_position = CVector3::Zero;
 	CQuaternion m_rotation = CQuaternion::Identity;
 	CVector3 m_moveSpeed = CVector3::Zero;
+	Player* m_player = nullptr;
+	CVector3 m_toCameraPos;
 };
 

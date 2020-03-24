@@ -22,6 +22,7 @@ bool TFungus::Start()
 void TFungus::Update()
 {	
 	Move();
+	Bond();
 }
 
 

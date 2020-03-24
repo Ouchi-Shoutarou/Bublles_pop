@@ -25,4 +25,5 @@ void Kfungus::Update()
 {
 
 	Move();
+	Bond();
 }

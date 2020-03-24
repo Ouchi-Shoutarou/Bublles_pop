@@ -23,6 +23,7 @@ void MeFungus::Update()
 {
 
 	Move();
+	Bond();
 }
 
 

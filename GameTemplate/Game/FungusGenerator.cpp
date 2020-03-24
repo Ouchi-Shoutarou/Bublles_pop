@@ -55,7 +55,7 @@ void FungusGenerator::Update()
 	generator_timer++;
 
 
-	if (generator_timer % 50 == 0) {
+	if (generator_timer % 40 == 0) {
 		Generator_Fungus();
 	}
 
@@ -73,22 +73,22 @@ void FungusGenerator::Generator_Fungus()
 	/////ジェネレータで各菌のクラスを作成する際に、逐一SetPosition関数を呼び出して、各菌のポジションを代入する。
 	
 	
-	Kfungus* k_fungus=NewGO<Kfungus>(0, script_me);
+	Kfungus* k_fungus=NewGO<Kfungus>(0, "fungus");
 	k_fungus->SetPosition(k_position);
 
-	MeFungus* me_fungus = NewGO<MeFungus>(0, script_me);
+	MeFungus* me_fungus = NewGO<MeFungus>(0, "fungus");
 	me_fungus->SetPosition (me_position);
 
-	TFungus* t_fungus = NewGO<TFungus>(0, script_me);
+	TFungus* t_fungus = NewGO<TFungus>(0, "fungus");
 	t_fungus->SetPosition (t_position);
 
-	GFungus* g_fungus = NewGO<GFungus>(0, script_me);
+	GFungus* g_fungus = NewGO<GFungus>(0, "fungus");
 	g_fungus->SetPosition (g_position);
 
-	Core_A* core_fungus = NewGO<Core_A>(0, script_me);
+	Core_A* core_fungus = NewGO<Core_A>(0, "fungus");
 	core_fungus->SetPosition (core_position);
 
-	Bond_Fungus* bond_fungus = NewGO<Bond_Fungus>(0, script_me);
+	Bond_Fungus* bond_fungus = NewGO<Bond_Fungus>(0, "fungus");
 	bond_fungus->SetPosition(bond_position);
 
 }

@@ -10,13 +10,14 @@ public:
 
 void SetSkinModel();
 
-wchar_t SetText();
 
 	void Move();
 
 	void Bond();
 
+	void Bond2();
 
+	void Circle_cheak();
 	
 	
 //////‚±‚±‚Å‘ã“ü‚³‚ê‚½Še‹Û‚ÌˆÊ’uî•ñ‚ğfungus_position‚É‘ã“ü‚·‚éB
@@ -27,7 +28,7 @@ wchar_t SetText();
 
 protected:
 
-	prefab::CSkinModelRender* m_skin;
+	prefab::CSkinModelRender* m_skin = nullptr;
 
 	int m_timer=0;
 

@@ -25,4 +25,5 @@ bool GFungus::Start()
 void GFungus::Update()
 {
 	Move();
+	Bond();
 }

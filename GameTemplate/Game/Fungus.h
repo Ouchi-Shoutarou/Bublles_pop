@@ -1,5 +1,5 @@
 #pragma once
-
+class Wire;
 class Fungus :public IGameObject
 {
 
@@ -35,5 +35,7 @@ protected:
 	CVector3 fungus_position=CVector3::Zero;
 
 	CVector3 fungus_Speed ;
+
+	Wire* m_wire = nullptr;
 };
 

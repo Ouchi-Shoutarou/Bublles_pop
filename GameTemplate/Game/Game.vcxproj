@@ -1796,6 +1796,7 @@
     </ClCompile>
     <ClCompile Include="TFungus.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="Wire.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bond_Fungus.h" />
@@ -1813,6 +1814,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TFungus.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="Wire.h" />
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>

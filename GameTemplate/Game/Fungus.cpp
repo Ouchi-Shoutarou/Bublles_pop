@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Fungus.h"
 #include "Kfungus.h"
+#include "Wire.h"
 
 Fungus::Fungus()
 {
@@ -38,6 +39,9 @@ void Fungus::Move()
 
 	fungus_position += fungus_Speed;
 
+	
+
+
 	m_skin->SetPosition(fungus_position);
 
 	m_timer++;
@@ -63,10 +67,35 @@ void Fungus::Bond() {
 		//２点間の距離を計算する。
 		CVector3 diff = kin->fungus_position - fungus_position;
 		if (diff.Length() < 20.0f) {	//距離が2000以下になったら。
-			//死亡。
+			//接触後の処理
 			if(!kin->IsDead()){
 				DeleteGO(kin);
 			}
+
+
+			/////接触した二つの菌をワイヤーでつなぐ
+
+			////１ワイヤークラスの生成
+			m_wire = NewGO<Wire>(0, "wire");
+			m_wire->Set_Wire_Position(fungus_position);
+
+			
+			/////二つの菌の動きを画一化する。
+
+			////１　２つの菌の動きのベクトルを合成する。
+
+			CVector3 NewSpped = kin->fungus_Speed + fungus_Speed;
+
+			////２　ワイヤーを１で求めたベクトルに合わせて移動させる。
+
+			m_wire->Set_Wire_Speed(fungus_Speed);
+
+			////３　ワイヤーともともとあった各菌との距離を加算させ各菌の移動も決定する。
+
+			
+			
+
+
 			DeleteGO(this);
 			return false;
 		}

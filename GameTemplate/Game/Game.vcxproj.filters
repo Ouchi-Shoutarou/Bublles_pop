@@ -30,6 +30,8 @@
     <ClCompile Include="GFungus.cpp" />
     <ClCompile Include="TFungus.cpp" />
     <ClCompile Include="Core_A.cpp" />
+    <ClCompile Include="Bond_Fungus.cpp" />
+    <ClCompile Include="Wire.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -48,6 +50,8 @@
     <ClInclude Include="GFungus.h" />
     <ClInclude Include="TFungus.h" />
     <ClInclude Include="Core_A.h" />
+    <ClInclude Include="Bond_Fungus.h" />
+    <ClInclude Include="Wire.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -64,6 +68,7 @@
     <MeshContentTask Include="Assets\modelData\gkin.FBX" />
     <MeshContentTask Include="Assets\modelData\kakukin.FBX" />
     <MeshContentTask Include="Assets\modelData\flame.FBX" />
+    <MeshContentTask Include="Assets\modelData\bond.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">

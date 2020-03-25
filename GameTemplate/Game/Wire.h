@@ -13,11 +13,15 @@ public :
 
 	CVector3 Set_Wire_Position(CVector3 pos) {
 		wire_position = pos;
+
+		return wire_position;
 	}
 
 
 	CVector3 Set_Wire_Speed(CVector3 speed) {
 		wire_Speed = speed;
+
+		return wire_Speed;
 	}
 
 

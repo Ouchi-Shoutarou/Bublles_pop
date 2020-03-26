@@ -31,17 +31,30 @@ public :
 		wire_number = num;
 			
 	}
+	//スケールを設定する。
+	void SetScale(const CVector3& scale) {
+		m_scale = scale;
+	}
 
-protected:
+
+
+
+
+
+
+
+private:
 
 
 	CVector3 wire_position = CVector3::Zero;
 	                       
 
-	CVector3  wire_Speed=CVector3::Zero;
+	CVector3  wire_Speed = CVector3::Zero;
+
+	CVector3 m_scale = CVector3::One;		//スケール。
 
 
-	prefab::CSkinModelRender* m_skin_wire;
+	prefab::CSkinModelRender* m_skin_wire = nullptr;
 
 
 	int wire_number;

@@ -5,15 +5,6 @@
 
 Fungus_LIST::Fungus_LIST()
 {
-
-	m_wire = NewGO<Wire>(0, "wire");
-
-	for (int d = 0; d < m_kinList.size(); d++) {
-
-		 m_kinList[d]->Set_Belonging_List(this);
-
-	}
-
 }
 
 Fungus_LIST::~Fungus_LIST()
@@ -22,9 +13,19 @@ Fungus_LIST::~Fungus_LIST()
 
 bool Fungus_LIST::Start()
 {
+	m_wire = NewGO<Wire>(0, "wire");
 
 	////////リストに入っているポインタのインスタンスにそれをことを知らせる。
 
+	for (int i = 0; i < m_kinList.size()-1; i++) {
+
+		CVector3 dir = {m_kinList[i]->GetPosition() - m_kinList[i + 1]->GetPosition()};
+
+		float len = dir.Length();
+
+		m_wire->SetScale({ 1.0f,len,1.0f });
+
+	}
 
 
 

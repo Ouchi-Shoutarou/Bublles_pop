@@ -58,6 +58,13 @@ void SetSkinModel();
 
 	}
 
+	CVector3 GetPosition() {
+
+		return fungus_position;
+
+	}
+
+
 protected:
 
 	prefab::CSkinModelRender* m_skin = nullptr;

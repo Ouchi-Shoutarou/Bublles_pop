@@ -21,6 +21,7 @@ bool Wire::Start()
 	m_skin_wire->Init(L"ModelData/flame.cmo");
 
 	m_skin_wire->SetPosition(wire_position);
+	m_skin_wire->SetScale(m_scale);
 
 
 	return true;

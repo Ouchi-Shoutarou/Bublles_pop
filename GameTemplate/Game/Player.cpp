@@ -23,7 +23,7 @@ bool Player::Start()
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 	m_skinModelRender->Init(L"modelData/unityChan.cmo");
-	//m_position = { 0,0,0 };
+	m_position = { 0,0,0 };
 	m_skinModelRender->SetPosition(m_position);
 	
 	return true;
@@ -59,8 +59,34 @@ void Player::Move()
 	m_position = m_charaCon.Execute(m_moveSpeed);
 }
 
+void Player::Turn()
+{
+	if (fabsf(m_moveSpeed.x) < 0.001f
+		&& fabsf(m_moveSpeed.z) < 0.001f) {
+		//m_moveSpeed.xとm_moveSpeed.zの絶対値がともに0.001以下ということは
+		//このフレームではキャラは移動していないので旋回する必要はない。
+		return;
+	}
+	//atan2はtanθの値を角度(ラジアン単位)に変換してくれる関数。
+	//m_moveSpeed.x / m_moveSpeed.zの結果はtanθになる。
+	//atan2を使用して、角度を求めている。
+	//これが回転角度になる。
+	float angle = atan2(m_moveSpeed.x, m_moveSpeed.z);
+	//atanが返してくる角度はラジアン単位なので
+	//SetRotationDegではなくSetRotationを使用する。
+	qRot.SetRotation(CVector3::AxisY, angle);
+}
+
 void Player::Update()
 {
+	CMatrix mRot;
+	mRot.MakeRotationFromQuaternion(qRot);
+	m_front.Set(mRot.m[2][0], mRot.m[2][1], mRot.m[2][2]);
+	m_front.Normalize();
+	m_right.Set(mRot.m[0][0], mRot.m[0][1], mRot.m[0][2]);
+	m_right.Normalize();
+	m_up.Set(mRot.m[1][0], mRot.m[1][1], mRot.m[1][2]);
+	m_up.Normalize();
 	/*m_moveSpeed.x = Pad(0).GetLStickXF() * -7.0f;
 
 	m_moveSpeed.z = Pad(0).GetLStickYF() * 7.0f;
@@ -71,11 +97,12 @@ void Player::Update()
 
 	//移動処理。
 	Move();
-
+	Turn();
 	//ワールド行列を更新。
 	CQuaternion qBias;
 	qBias.SetRotationDeg(CVector3::AxisX, 180.0f);	//3dsMaxで設定されているアニメーションでキャラが回転しているので、補正を入れる。
 	m_skinModelRender->SetPosition(m_position);
+	m_skinModelRender->SetRotation(qRot);
 	//m_skinModelRender->SetRotation(qBias);
 
 }

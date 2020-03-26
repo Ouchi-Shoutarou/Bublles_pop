@@ -1,6 +1,5 @@
 #pragma once
 #include"Game.h"
-#include"Player.h"
 class GameCamera :public IGameObject
 {
 public:

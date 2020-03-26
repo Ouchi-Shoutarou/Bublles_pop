@@ -39,6 +39,7 @@ void GameCamera::Update()
 	CVector3 target = m_player->m_position;
 	//プレイヤの足元からちょっと上を注視点とする。
 	target.y += 70.0f;
+	target.x += 30.0f;
 
 	CVector3 toCameraPosOld = m_toCameraPos;
 	//パッドの入力を使ってカメラを回す。

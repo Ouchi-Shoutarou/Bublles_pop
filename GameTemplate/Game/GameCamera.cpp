@@ -38,7 +38,7 @@ void GameCamera::Update()
 	//注視点を計算する。
 	CVector3 target = m_player->m_position;
 	//プレイヤの足元からちょっと上を注視点とする。
-	target.y += 70.0f;
+	target.y += 100.0f;
 	target.x += 30.0f;
 
 	CVector3 toCameraPosOld = m_toCameraPos;
@@ -73,8 +73,8 @@ void GameCamera::Update()
 	//視点を計算する。
 	CVector3 pos = target + m_toCameraPos;
 	//メインカメラに注視点と視点を設定する。
-	
-	MainCamera().SetTarget(target);
+	//プレイヤーの横方向をとって、常にプレイヤーの右側にタゲが行くようにしようぜ
+	MainCamera().SetTarget(m_player->m_position);
 	MainCamera().SetPosition(pos);
 	
 	//カメラの更新。

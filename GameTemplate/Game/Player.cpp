@@ -63,6 +63,14 @@ void Player::Move()
 
 void Player::Update()
 {
+	CMatrix mRot;
+	mRot.MakeRotationFromQuaternion(qRot);
+	m_front.Set(mRot.m[2][0], mRot.m[2][1], mRot.m[2][2]);
+	m_front.Normalize();
+	m_right.Set(mRot.m[0][0], mRot.m[0][1], mRot.m[0][2]);
+	m_right.Normalize();
+	m_up.Set(mRot.m[1][0], mRot.m[1][1], mRot.m[1][2]);
+	m_up.Normalize();
 	/*m_moveSpeed.x = Pad(0).GetLStickXF() * -7.0f;
 
 	m_moveSpeed.z = Pad(0).GetLStickYF() * 7.0f;

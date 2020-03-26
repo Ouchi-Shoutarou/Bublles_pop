@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "GameCamera.h"
+#include"Player.h"
+
 
 GameCamera :: GameCamera() 
 {
@@ -36,10 +38,10 @@ void GameCamera::Update()
 
 	//カメラを更新。
 	//注視点を計算する。
-	CVector3 target = m_player->m_position;
+	CVector3 target = m_player->GetPos();
 	//プレイヤの足元からちょっと上を注視点とする。
 	target.y += 100.0f;
-	target.x += 30.0f;
+	target += m_player->GetRight() * 2;
 
 	CVector3 toCameraPosOld = m_toCameraPos;
 	//パッドの入力を使ってカメラを回す。
@@ -74,7 +76,7 @@ void GameCamera::Update()
 	CVector3 pos = target + m_toCameraPos;
 	//メインカメラに注視点と視点を設定する。
 	//プレイヤーの横方向をとって、常にプレイヤーの右側にタゲが行くようにしようぜ
-	MainCamera().SetTarget(m_player->m_position);
+	MainCamera().SetTarget(m_player->GetPos());
 	MainCamera().SetPosition(pos);
 	
 	//カメラの更新。

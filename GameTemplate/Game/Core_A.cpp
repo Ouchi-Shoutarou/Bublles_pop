@@ -12,7 +12,7 @@ Core_A::~Core_A()
 
 bool Core_A::Start()
 {
-	SetALL();
+	//SetALL();
 
 	SetSkinModel();
 
@@ -51,6 +51,6 @@ void Core_A::SetALL() {
 
 void Core_A::Update()
 {
-	ptLight->SetPosition(fungus_position);
+	//ptLight->SetPosition(fungus_position);
 	Move();
 }

@@ -9,7 +9,7 @@ public :
 
 	bool Start();
 
-	void UpDate();
+	void Update()override;
 
 	CVector3 Set_Wire_Position(CVector3 pos) {
 		wire_position = pos;
@@ -25,6 +25,13 @@ public :
 	}
 
 
+
+	void Set_wire_number(int num) {
+
+		wire_number = num;
+			
+	}
+
 protected:
 
 
@@ -36,5 +43,9 @@ protected:
 
 	prefab::CSkinModelRender* m_skin_wire;
 
+
+	int wire_number;
+
+	int m_timer = 0;
 };
 

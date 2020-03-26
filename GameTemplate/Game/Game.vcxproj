@@ -1766,6 +1766,7 @@
     <ClCompile Include="Core_A.cpp" />
     <ClCompile Include="Fungus.cpp" />
     <ClCompile Include="FungusGenerator.cpp" />
+    <ClCompile Include="Fungus_LIST.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="GFungus.cpp" />
@@ -1803,6 +1804,7 @@
     <ClInclude Include="Core_A.h" />
     <ClInclude Include="Fungus.h" />
     <ClInclude Include="FungusGenerator.h" />
+    <ClInclude Include="Fungus_LIST.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="GFungus.h" />

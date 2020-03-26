@@ -59,6 +59,8 @@ void Player::Move()
 	m_position = m_charaCon.Execute(m_moveSpeed);
 }
 
+
+
 void Player::Update()
 {
 	/*m_moveSpeed.x = Pad(0).GetLStickXF() * -7.0f;

@@ -93,7 +93,7 @@ void Fungus::Bond() {
 
 		//‚Q“_ŠÔ‚Ì‹——£‚ðŒvŽZ‚·‚éB
 		CVector3 diff = kin->fungus_position - fungus_position;
-		if (diff.Length() < 20.0f * 10.0f) {	//‹——£‚ª2000ˆÈ‰º‚É‚È‚Á‚½‚çB
+		if (diff.Length() < 20.0f * 3.0f) {	//‹——£‚ª2000ˆÈ‰º‚É‚È‚Á‚½‚çB
 			//ÚGŒã‚Ìˆ—
 			/*if(!kin->IsDead()){
 				DeleteGO(kin);
@@ -160,14 +160,7 @@ void Fungus::Bond() {
 			}
 
  
-			////////‚P@‚Q‚Â‚Ì‹Û‚Ì“®‚«‚ÌƒxƒNƒgƒ‹‚ð‡¬‚·‚éB
 
-			//NewSpeed = kin->fungus_Speed + fungus_Speed;
-			//NewSpeed /= 2.0f;
-
-
-			//kin->fungus_Speed = NewSpeed;
-			//fungus_Speed = NewSpeed;
 		
 
 		

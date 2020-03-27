@@ -5,7 +5,6 @@
 
 Fungus_LIST::Fungus_LIST()
 {
-	m_wire = NewGO<Wire>(0, "wire");
 }
 
 Fungus_LIST::~Fungus_LIST()
@@ -42,6 +41,10 @@ void Fungus_LIST::SetMove()
 
 
 void Fungus_LIST::UpdateMove() {
+
+	m_wire = NewGO<Wire>(0, "wire");
+
+	NewSpeed = CVector3::Zero;
 	
 	/////このNewSpeedにリストに入っているスピードを代入する。
 

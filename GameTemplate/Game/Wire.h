@@ -9,7 +9,7 @@ public :
 
 	bool Start();
 
-	void UpDate();
+	void Update()override;
 
 	CVector3 Set_Wire_Position(CVector3 pos) {
 		wire_position = pos;
@@ -25,16 +25,40 @@ public :
 	}
 
 
-protected:
+
+	void Set_wire_number(int num) {
+
+		wire_number = num;
+			
+	}
+	//スケールを設定する。
+	void SetScale(const CVector3& scale) {
+		m_scale = scale;
+	}
+
+
+
+
+
+
+
+
+private:
 
 
 	CVector3 wire_position = CVector3::Zero;
 	                       
 
-	CVector3  wire_Speed=CVector3::Zero;
+	CVector3  wire_Speed = CVector3::Zero;
+
+	CVector3 m_scale = CVector3::One;		//スケール。
 
 
-	prefab::CSkinModelRender* m_skin_wire;
+	prefab::CSkinModelRender* m_skin_wire = nullptr;
 
+
+	int wire_number;
+
+	int m_timer = 0;
 };
 

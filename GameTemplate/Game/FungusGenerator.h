@@ -25,12 +25,14 @@ protected:
 
 	char script_me[30];
 
-	int fungus_number;
-
 	//Fungus* m_fungus=nullptr;
 	int generator_timer = 0;
 
 	CLevel m_level;
+
+	//////fungusを識別するナンバーを作成します。
+
+	int fungus_number = 0;
 
 
 };

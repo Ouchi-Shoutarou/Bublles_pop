@@ -32,6 +32,7 @@
     <ClCompile Include="Core_A.cpp" />
     <ClCompile Include="Bond_Fungus.cpp" />
     <ClCompile Include="Wire.cpp" />
+    <ClCompile Include="Fungus_LIST.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -52,6 +53,7 @@
     <ClInclude Include="Core_A.h" />
     <ClInclude Include="Bond_Fungus.h" />
     <ClInclude Include="Wire.h" />
+    <ClInclude Include="Fungus_LIST.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

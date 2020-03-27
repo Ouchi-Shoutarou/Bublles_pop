@@ -10,6 +10,8 @@ Wire::Wire()
 
 Wire::~Wire()
 {
+
+	DeleteGO(m_skin_wire);
 }
 
 bool Wire::Start()
@@ -19,15 +21,25 @@ bool Wire::Start()
 	m_skin_wire->Init(L"ModelData/flame.cmo");
 
 	m_skin_wire->SetPosition(wire_position);
+	m_skin_wire->SetScale(m_scale);
 
 
 	return true;
 }
 
-void Wire::UpDate()
+void Wire::Update()
 {
 
+
+
+	wire_position += wire_Speed;
+
+	m_skin_wire->SetPosition(wire_position);
 	
+m_timer++;
+
+if(m_timer == 400){DeleteGO(this);}
+
 
 
 }

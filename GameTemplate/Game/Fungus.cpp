@@ -2,6 +2,7 @@
 #include "Fungus.h"
 #include "Kfungus.h"
 #include "Wire.h"
+#include "Fungus_LIST.h"
 
 Fungus::Fungus()
 {
@@ -31,26 +32,32 @@ void Fungus::SetSkinModel()
 	fungus_Speed.x = CMath::Lerp(t, -7.0f, 7.0f);
 	fungus_Speed.y = CMath::Lerp(k, -7.0f, 7.0f);
 	fungus_Speed.z = CMath::Lerp(h, -7.0f, 7.0f);
+
+
+
+
+
 }
 
 
 void Fungus::Move()
 {
 
+		//////マイナンバーに応じて動きが確定する。
 	fungus_position += fungus_Speed;
 
-	
+		m_skin->SetPosition(fungus_position);
+
+		m_timer++;
 
 
-	m_skin->SetPosition(fungus_position);
+		if (m_timer == 400) {
 
-	m_timer++;
+			DeleteGO(this);
+		}
 
 
-	if (m_timer == 400) {
 
-		DeleteGO(this);
-	}
 }
 
 
@@ -58,45 +65,114 @@ void Fungus::Move()
 void Fungus::Bond() {	
 	//PlayerBulletという名前のゲームオブジェクトに対してクエリ(問い合わせ)を行う。
 	QueryGOs<Fungus>("fungus", [&](Fungus* kin) {
+		
+		
 		if (kin == this) {
 			return true;
 		}
+
+		//////リストに積まれたポインタが既に使われているかどうかを判定します。
+		//////既に自分のリストに入っているものは省きます。
+		if (k_list != nullptr) {
+			auto itr = std::find(k_list->m_kinList.begin(), k_list->m_kinList.end(), kin);    //  リストの中から
+			if (itr != k_list->m_kinList.end()) {     // 発見した場合
+
+					/////////強制停止
+
+				return true;
+
+			}
+
+		}
+		
+
 		if (this->IsDead()) {
 			return false;
 		}
+
+
 		//２点間の距離を計算する。
 		CVector3 diff = kin->fungus_position - fungus_position;
-		if (diff.Length() < 20.0f) {	//距離が2000以下になったら。
+		if (diff.Length() < 20.0f * 10.0f) {	//距離が2000以下になったら。
 			//接触後の処理
-			if(!kin->IsDead()){
+			/*if(!kin->IsDead()){
 				DeleteGO(kin);
+			}*/
+			m_kin = kin;
+
+			///////////自分自身がグループに属しているか？
+
+			/////いいえ
+
+			if (k_list == nullptr) {
+				
+				////////////共通リストを作成します。
+
+				k_list = NewGO<Fungus_LIST>(0, "list");
+
+				k_list->m_kinList.push_back(this);
+			
+				
+
+			}
+		
+
+	
+
+			////相手がリストに属しているか？
+			///いいえ
+
+			if (kin->Get_Belonging_List() == nullptr) {
+				
+				////自分が所属しているリストに相手のポインタを代入します。
+			
+				k_list->m_kinList.push_back(kin);
+				kin->k_list = k_list;
+				k_list->UpdateMove();
+
 			}
 
+			else {
 
-			/////接触した二つの菌をワイヤーでつなぐ
+				/////相手のリストの中のすべての要素を書き出します。
 
-			////１ワイヤークラスの生成
-			m_wire = NewGO<Wire>(0, "wire");
-			m_wire->Set_Wire_Position(fungus_position);
+				for (int i = 0; i < kin->Get_Belonging_List()->m_kinList.size(); i++)
+				{
+					k_list->m_kinList.push_back
+					(
+						kin->Get_Belonging_List()->m_kinList[i]
+					);
 
-			
-			/////二つの菌の動きを画一化する。
+					k_list->UpdateMove();
 
-			////１　２つの菌の動きのベクトルを合成する。
+				}
+				/////古いグループを削除します。
 
-			CVector3 NewSpped = kin->fungus_Speed + fungus_Speed;
+				DeleteGO(kin->Get_Belonging_List());
 
-			////２　ワイヤーを１で求めたベクトルに合わせて移動させる。
-
-			m_wire->Set_Wire_Speed(fungus_Speed);
-
-			////３　ワイヤーともともとあった各菌との距離を加算させ各菌の移動も決定する。
-
-			
-			
+				for (int i = 0; i < k_list->m_kinList.size();i++) {
 
 
-			DeleteGO(this);
+					//////再通知
+
+					k_list->m_kinList[i]->k_list = k_list;
+				}
+			}
+
+ 
+			////////１　２つの菌の動きのベクトルを合成する。
+
+			//NewSpeed = kin->fungus_Speed + fungus_Speed;
+			//NewSpeed /= 2.0f;
+
+
+			//kin->fungus_Speed = NewSpeed;
+			//fungus_Speed = NewSpeed;
+		
+
+		
+
+		/*	DeleteGO(this);*/
 			return false;
 		}
 		return true;
@@ -104,12 +180,27 @@ void Fungus::Bond() {
 	);
 }
 
+void Fungus::Access_To_LIST()
+{
+}
+
+void Fungus::Cheak_Belonging_List()
+{
+	
+
+}
+
+void Fungus::Set_Belonging_List(Fungus_LIST* list_A)
+{
+
+	Belonging_List = list_A;
+
+}
+
+
+
 
 void Fungus::Bond2() {
-
-
-	//FindGO<Fungus>("fungus", 0);
-
 
 
 	//PlayerBulletという名前のゲームオブジェクトに対してクエリ(問い合わせ)を行う。
@@ -175,3 +266,4 @@ void Fungus::Circle_cheak()
 
 	//
 }
+

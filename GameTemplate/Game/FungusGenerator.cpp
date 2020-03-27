@@ -50,8 +50,8 @@ bool FungusGenerator::Start()
 
 void FungusGenerator::Update()
 {
-	sprintf(script_me, "%d \n", fungus_number);
-	fungus_number++;
+	/*sprintf(script_me, "%d \n", fungus_number);
+	fungus_number++;*/
 	generator_timer++;
 
 
@@ -75,18 +75,30 @@ void FungusGenerator::Generator_Fungus()
 	
 	Kfungus* k_fungus=NewGO<Kfungus>(0, "fungus");
 	k_fungus->SetPosition(k_position);
+	
+
+	fungus_number++;
 
 	MeFungus* me_fungus = NewGO<MeFungus>(0, "fungus");
 	me_fungus->SetPosition (me_position);
 
+
+	fungus_number++;
+
 	TFungus* t_fungus = NewGO<TFungus>(0, "fungus");
 	t_fungus->SetPosition (t_position);
 
-	GFungus* g_fungus = NewGO<GFungus>(0, "fungus");
-	g_fungus->SetPosition (g_position);
 
-	Core_A* core_fungus = NewGO<Core_A>(0, "fungus");
-	core_fungus->SetPosition (core_position);
+	fungus_number++;
+
+	GFungus* g_fungus = NewGO<GFungus>(0, "fungus");
+	g_fungus->SetPosition (g_position); 
+	
+
+	fungus_number++;
+
+	//Core_A* core_fungus = NewGO<Core_A>(0, "fungus");
+	//core_fungus->SetPosition (core_position);
 
 	Bond_Fungus* bond_fungus = NewGO<Bond_Fungus>(0, "fungus");
 	bond_fungus->SetPosition(bond_position);

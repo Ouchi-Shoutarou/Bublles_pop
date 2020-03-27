@@ -5,6 +5,7 @@
 
 Fungus_LIST::Fungus_LIST()
 {
+	m_wire = NewGO<Wire>(0, "wire");
 }
 
 Fungus_LIST::~Fungus_LIST()
@@ -13,7 +14,6 @@ Fungus_LIST::~Fungus_LIST()
 
 bool Fungus_LIST::Start()
 {
-	m_wire = NewGO<Wire>(0, "wire");
 
 	////////リストに入っているポインタのインスタンスにそれをことを知らせる。
 
@@ -26,6 +26,8 @@ bool Fungus_LIST::Start()
 		m_wire->SetScale({ 1.0f,len,1.0f });
 
 	}
+
+
 
 
 
@@ -59,6 +61,12 @@ void Fungus_LIST::UpdateMove() {
 		m_kinList[i]->Set_Speed(NewSpeed);
 
 	}
+
+
+	m_wire->Set_Wire_Speed(NewSpeed);
+	
+	
+	
 
 
 

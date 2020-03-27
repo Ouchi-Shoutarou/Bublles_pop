@@ -100,14 +100,6 @@ void Fungus::Bond() {
 			}*/
 			m_kin = kin;
 
-			/////接触した二つの菌をワイヤーでつなぐ
-
-			////１ワイヤークラスの生成
-			m_wire = NewGO<Wire>(0, "wire");
-			m_wire->Set_Wire_Position(fungus_position);
-			
-
-
 			///////////自分自身がグループに属しているか？
 
 			/////いいえ
@@ -168,15 +160,15 @@ void Fungus::Bond() {
 			}
 
  
-			//////１　２つの菌の動きのベクトルを合成する。
+			////////１　２つの菌の動きのベクトルを合成する。
 
-			NewSpeed = kin->fungus_Speed + fungus_Speed;
-			NewSpeed /= 2.0f;
+			//NewSpeed = kin->fungus_Speed + fungus_Speed;
+			//NewSpeed /= 2.0f;
 
 
-			kin->fungus_Speed = NewSpeed;
-			fungus_Speed = NewSpeed;
-			m_wire->Set_Wire_Speed(NewSpeed);
+			//kin->fungus_Speed = NewSpeed;
+			//fungus_Speed = NewSpeed;
+		
 
 		
 

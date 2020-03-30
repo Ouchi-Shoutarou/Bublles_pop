@@ -1769,6 +1769,7 @@
     <ClCompile Include="Fungus_LIST.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="GameSelect.cpp" />
     <ClCompile Include="GFungus.cpp" />
     <ClCompile Include="Kfungus.cpp" />
     <ClCompile Include="main.cpp" />
@@ -1807,6 +1808,7 @@
     <ClInclude Include="Fungus_LIST.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="GameSelect.h" />
     <ClInclude Include="GFungus.h" />
     <ClInclude Include="Kfungus.h" />
     <ClInclude Include="MeFungus.h" />
@@ -1846,6 +1848,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\kresorcekin.png" />
+    <ImageContentTask Include="Assets\sprite\flame2.png" />
+    <ImageContentTask Include="Assets\sprite\gamen.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

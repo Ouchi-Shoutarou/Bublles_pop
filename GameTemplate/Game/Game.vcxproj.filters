@@ -33,6 +33,7 @@
     <ClCompile Include="Bond_Fungus.cpp" />
     <ClCompile Include="Wire.cpp" />
     <ClCompile Include="Fungus_LIST.cpp" />
+    <ClCompile Include="GameSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -54,6 +55,7 @@
     <ClInclude Include="Bond_Fungus.h" />
     <ClInclude Include="Wire.h" />
     <ClInclude Include="Fungus_LIST.h" />
+    <ClInclude Include="GameSelect.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -86,6 +88,8 @@
     <ImageContentTask Include="Assets\sprite\bottom.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\gamen.png" />
+    <ImageContentTask Include="Assets\sprite\flame2.png" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\kresorcekin.png" />

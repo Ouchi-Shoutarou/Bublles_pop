@@ -19,5 +19,10 @@ public:
 	CVector3 to_P_T;
 	CVector3 to_P_C;
 
+	
+
+
+
+
 };
 

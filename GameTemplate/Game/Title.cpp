@@ -1,9 +1,7 @@
 #include "stdafx.h"
 #include "Title.h"
-#include "Player.h"
-#include "Stage.h"
-#include"GameCamera.h"
-#include "Game.h"
+#include "GameSelect.h"
+
 
 Title::Title()
 {
@@ -17,7 +15,7 @@ Title::~Title()
 	DeleteGO(m_sprite_bottom);
 
 
-	game = NewGO<Game>(0);
+	m_gameselect = NewGO<GameSelect>(0);
 }
 
 bool Title::Start()
@@ -43,5 +41,6 @@ void Title::Update()
 		DeleteGO(m_sprite_bottom);}
 
 	else if (m_timer==60) {m_timer = 0;}
+
 
 }

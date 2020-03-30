@@ -90,6 +90,7 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\gamen.png" />
     <ImageContentTask Include="Assets\sprite\flame2.png" />
+    <ImageContentTask Include="Assets\sprite\awa.png" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\kresorcekin.png" />

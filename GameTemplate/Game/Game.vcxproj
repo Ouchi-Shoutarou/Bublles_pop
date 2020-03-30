@@ -1848,6 +1848,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\kresorcekin.png" />
+    <ImageContentTask Include="Assets\sprite\awa.png" />
     <ImageContentTask Include="Assets\sprite\flame2.png" />
     <ImageContentTask Include="Assets\sprite\gamen.png" />
   </ItemGroup>

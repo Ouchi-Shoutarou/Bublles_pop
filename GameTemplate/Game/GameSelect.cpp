@@ -87,7 +87,7 @@ if (flame_position_flag == 3) {
 
 		flame_position = flame_position_Game;
 
-		if (Pad(0).IsPress(enButtonA)) {
+		if (Pad(0).IsTrigger(enButtonA)) {
 
 			DeleteGO(this);
 

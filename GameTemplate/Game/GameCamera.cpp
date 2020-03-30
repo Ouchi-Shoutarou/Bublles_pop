@@ -88,26 +88,29 @@ void GameCamera::Update()
 
 	qRot.SetRotationDeg(CVector3::AxisY, 2.0f * x);
 	qRot.Multiply(to_P_C);
+
+
+
 	////X軸周りの回転。
-	//CVector3 axisX;
-	//axisX.Cross(CVector3::AxisY, to_P_T);
-	//axisX.Normalize();
-	//qRot.SetRotationDeg(axisX, 2.0f * y);
-	//qRot.Multiply(to_P_T);
+	CVector3 axisX;
+	axisX.Cross(CVector3::AxisY, to_P_T);
+	axisX.Normalize();
+	qRot.SetRotationDeg(axisX, 2.0f * y);
+	qRot.Multiply(to_P_T);
 	//カメラの回転の上限をチェックする。
 	//注視点から視点までのベクトルを正規化する。
 	//正規化すると、ベクトルの大きさが１になる。
 	//大きさが１になるということは、ベクトルから強さがなくなり、方向のみの情報となるということ。
-	//CVector3 toPosDir = to_P_T;
-	//toPosDir.Normalize();
-	//if (toPosDir.y < -0.5f) {
-	//	//カメラが上向きすぎ。
-	//	to_P_T = toCameraPosOld;
-	//}
-	//else if (toPosDir.y > 0.8f) {
-	//	//カメラが下向きすぎ。
-	//	to_P_T = toCameraPosOld;
-	//}
+	CVector3 toPosDir = to_P_T;
+	toPosDir.Normalize();
+	if (toPosDir.y < -0.5f) {
+		//カメラが上向きすぎ。
+		to_P_T = toCameraPosOld;
+	}
+	else if (toPosDir.y > 0.8f) {
+		//カメラが下向きすぎ。
+		to_P_T = toCameraPosOld;
+	}
 
 	//視点を計算する。
 	CVector3 Camera_Target = m_player->GetPos() + to_P_T;

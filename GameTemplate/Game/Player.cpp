@@ -65,20 +65,52 @@ void Player::Move()
 
 void Player::Turn()
 {
-	if (fabsf(m_moveSpeed.x) < 0.001f
-		&& fabsf(m_moveSpeed.z) < 0.001f) {
-		//m_moveSpeed.xとm_moveSpeed.zの絶対値がともに0.001以下ということは
-		//このフレームではキャラは移動していないので旋回する必要はない。
-		return;
+	//if (fabsf(m_moveSpeed.x) < 0.001f
+	//	&& fabsf(m_moveSpeed.z) < 0.001f) {
+	//	//m_moveSpeed.xとm_moveSpeed.zの絶対値がともに0.001以下ということは
+	//	//このフレームではキャラは移動していないので旋回する必要はない。
+	//	return;
+	//}
+	////atan2はtanθの値を角度(ラジアン単位)に変換してくれる関数。
+	////m_moveSpeed.x / m_moveSpeed.zの結果はtanθになる。
+	////atan2を使用して、角度を求めている。
+	////これが回転角度になる。
+	//float angle = atan2(m_moveSpeed.x, m_moveSpeed.z);
+	////atanが返してくる角度はラジアン単位なので
+	////SetRotationDegではなくSetRotationを使用する。
+	//qRot.SetRotation(CVector3::AxisY, angle);
+
+	CVector3 cFront = MainCamera().GetForward();
+	cFront.y = 0.0f;
+	cFront.Normalize();
+
+	//内積から角度を求める。
+	float res = m_front.Dot(cFront);
+	//念のための非数防止。
+	res = max(-1.0f, min(1.0f, res));
+
+	//cosθからラジアン単位に変換。
+	float rad = acos(res);
+
+	//回転する方向を決める。
+	float dir = m_right.Dot(cFront);
+
+	if (dir < 0.0f) {
+		rad *= -1.0f;
 	}
-	//atan2はtanθの値を角度(ラジアン単位)に変換してくれる関数。
-	//m_moveSpeed.x / m_moveSpeed.zの結果はtanθになる。
-	//atan2を使用して、角度を求めている。
-	//これが回転角度になる。
-	float angle = atan2(m_moveSpeed.x, m_moveSpeed.z);
-	//atanが返してくる角度はラジアン単位なので
-	//SetRotationDegではなくSetRotationを使用する。
-	qRot.SetRotation(CVector3::AxisY, angle);
+
+
+	//カメラの方向へ回転。
+	CQuaternion r;
+	r.SetRotation(CVector3::AxisY, rad);
+
+	//回転の乗算。
+	qRot.Multiply(r);
+
+
+
+
+
 }
 
 void Player::Update()
@@ -107,7 +139,7 @@ void Player::Update()
 	qBias.SetRotationDeg(CVector3::AxisX, 180.0f);	//3dsMaxで設定されているアニメーションでキャラが回転しているので、補正を入れる。
 	m_skinModelRender->SetPosition(m_position);
 	m_skinModelRender->SetRotation(qRot);
-	//m_skinModelRender->SetRotation(qBias);
+
 
 }
 

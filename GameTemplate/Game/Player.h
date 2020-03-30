@@ -26,9 +26,9 @@ private:
 	prefab::CSkinModelRender* m_skinModelRender = nullptr; 
 	CVector3 m_moveSpeed = CVector3::Zero;
 	CCharacterController m_charaCon;
-	CQuaternion m_rotation = CQuaternion::Identity;	//‰ñ“]B
+	//CQuaternion m_rotation = CQuaternion::Identity;
 	CVector3 m_position = CVector3::Zero;
-	CQuaternion qRot = CQuaternion::Identity;
+	CQuaternion qRot = CQuaternion::Identity;	//‰ñ“]B
 
 	//‰ñ“]s—ñ
 	CVector3 m_front;

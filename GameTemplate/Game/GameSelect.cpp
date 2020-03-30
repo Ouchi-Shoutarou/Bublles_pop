@@ -26,7 +26,7 @@ bool GameSelect::Start()
 
 
 	m_select = NewGO<prefab::CSpriteRender>(0);
-	m_select->Init(L"sprite/flame2.dds", 1280.0f, 720.0f);
+	m_select->Init(L"sprite/flame21.dds", 1280.0f, 720.0f);
 
 
 	m_haikei = NewGO<prefab::CSpriteRender>(0);

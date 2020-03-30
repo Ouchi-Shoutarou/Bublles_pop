@@ -128,6 +128,9 @@ void Fungus::Bond() {
 			
 				k_list->m_kinList.push_back(kin);
 				kin->k_list = k_list;
+
+
+
 				k_list->UpdateMove();
 
 			}

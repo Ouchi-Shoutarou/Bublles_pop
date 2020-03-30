@@ -20,6 +20,8 @@ public:
 
 	std::vector<Fungus*> m_kinList;
 
+	std::vector<Wire*> m_wireList;
+
 	Wire* m_wire = nullptr;
 	
 	CVector3 NewSpeed = CVector3::Zero;

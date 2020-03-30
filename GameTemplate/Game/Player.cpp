@@ -34,6 +34,10 @@ void Player::Move()
 	//左スティックの入力量を受け取る。
 	float lStick_x = Pad(0).GetLStickXF();
 	float lStick_y = Pad(0).GetLStickYF();
+
+
+
+
 	//カメラの前方方向と右方向を取得。
 	CVector3 cameraForward = MainCamera().GetForward();
 	CVector3 cameraRight = MainCamera().GetRight();

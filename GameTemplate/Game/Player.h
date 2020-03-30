@@ -17,6 +17,11 @@ public:
 	CVector3 GetRight() {
 		return m_right;
 	}
+
+	CQuaternion GetRotation() {
+		return qRot;
+	}
+
 private:
 	prefab::CSkinModelRender* m_skinModelRender = nullptr; 
 	CVector3 m_moveSpeed = CVector3::Zero;

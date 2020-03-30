@@ -14,15 +14,13 @@ Fungus_LIST::~Fungus_LIST()
 bool Fungus_LIST::Start()
 {
 
-	////////リストに入っているポインタのインスタンスにそれをことを知らせる。
-
 	for (int i = 0; i < m_kinList.size()-1; i++) {
 
 		CVector3 dir = {m_kinList[i]->GetPosition() - m_kinList[i + 1]->GetPosition()};
 
 		float len = dir.Length();
 
-		m_wire->SetScale({ 1.0f,len,1.0f });
+		m_wire->SetScale({ 1.0f,len/100.0f,1.0f });
 
 	}
 
@@ -44,6 +42,28 @@ void Fungus_LIST::UpdateMove() {
 
 	m_wire = NewGO<Wire>(0, "wire");
 
+	//////この関数が呼ばれるということは、新しく菌がこのリストにpushbackされたということである。
+
+	/////////wireのポジションを設定する。
+
+
+
+	//////////接触判定したインスタンスがリストの何番目にあるか探査するプログラムがいる。
+
+
+
+	////////////０番目に入っているポインタのインスタンスからポジションを確保する。
+
+	m_wire->Set_Wire_Position(m_kinList[m_kinList.size()-1]->GetPosition());  ////////////////これで新しい菌が今あるグループもしくは菌に接触した場合、
+	/////////////インスタンス（接触判定をしたインスタンス）から最後のインスタンス（新しく追加されたインスタンス）にベクトルが伸びて距離を把握することができる。）
+
+	//////////１番目に入っているポインタのインスタンスからポジションを確保して、回す。
+	
+//	(m_kinList[m_kinList.size() - 1]m_kinList[1]->GetPosition()- m_kinList[0]->GetPosition()　
+	
+
+
+
 	NewSpeed = CVector3::Zero;
 	
 	/////このNewSpeedにリストに入っているスピードを代入する。
@@ -53,23 +73,23 @@ void Fungus_LIST::UpdateMove() {
 		NewSpeed += m_kinList[d]->Get_Speed();
 
 	}
+
+	////////////////スピードを代入する。
+
+	for (int i = 0; i < m_wireList.size(); i++) {
+		m_wire->Set_Wire_Speed(NewSpeed);
+	}
 	
 	NewSpeed /= m_kinList.size();
 
 
 	for (int i = 0; i < m_kinList.size(); i++)
-	{
-
-		
+	{	
 		m_kinList[i]->Set_Speed(NewSpeed);
 
 	}
 
 
-	m_wire->Set_Wire_Speed(NewSpeed);
-	
-	
-	
 
 
 

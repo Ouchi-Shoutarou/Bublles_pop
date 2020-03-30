@@ -12,6 +12,12 @@ public:
 	CQuaternion m_rotation = CQuaternion::Identity;
 	CVector3 m_moveSpeed = CVector3::Zero;
 	Player* m_player = nullptr;
-	CVector3 m_toCameraPos;
+
+	CVector3 Camera_target;
+	CVector3 Camera_Basic_Target;
+
+	CVector3 to_P_T;
+	CVector3 to_P_C;
+
 };
 

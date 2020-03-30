@@ -38,7 +38,11 @@ public :
 
 
 
+	void  Set_position(CVector3 pos) {
 
+		wire_position = pos;
+	
+	}
 
 
 

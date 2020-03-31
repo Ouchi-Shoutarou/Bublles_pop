@@ -63,22 +63,36 @@ void Player::Move()
 	m_position = m_charaCon.Execute(m_moveSpeed);
 }
 
+void Player::Jump_Up()
+{
+
+	if (Pad(0).IsPress(enButtonB)) {
+		//エフェクトを作成。
+		prefab::CEffect* effect = NewGO<prefab::CEffect>(0);
+		//エフェクトを再生。
+		effect->Play(L"effect/awa2.efk");
+		CVector3 emitPos = m_position;
+		CVector3 emitscale = CVector3::One;
+	
+		emitPos.y = 10.0f;
+		effect->SetPosition(emitPos);
+		effect->SetScale(emitscale);
+		m_moveSpeed.y = 0.0f;
+		m_moveSpeed.y += 0.0f;
+
+		////////////////とちゅうでBボタンが押されなくなったら今ある泡をすべてデリートしたい。
+
+
+
+	}
+
+
+
+}
+
 void Player::Turn()
 {
-	//if (fabsf(m_moveSpeed.x) < 0.001f
-	//	&& fabsf(m_moveSpeed.z) < 0.001f) {
-	//	//m_moveSpeed.xとm_moveSpeed.zの絶対値がともに0.001以下ということは
-	//	//このフレームではキャラは移動していないので旋回する必要はない。
-	//	return;
-	//}
-	////atan2はtanθの値を角度(ラジアン単位)に変換してくれる関数。
-	////m_moveSpeed.x / m_moveSpeed.zの結果はtanθになる。
-	////atan2を使用して、角度を求めている。
-	////これが回転角度になる。
-	//float angle = atan2(m_moveSpeed.x, m_moveSpeed.z);
-	////atanが返してくる角度はラジアン単位なので
-	////SetRotationDegではなくSetRotationを使用する。
-	//qRot.SetRotation(CVector3::AxisY, angle);
+
 
 	CVector3 cFront = MainCamera().GetForward();
 	cFront.y = 0.0f;
@@ -123,17 +137,12 @@ void Player::Update()
 	m_right.Normalize();
 	m_up.Set(mRot.m[1][0], mRot.m[1][1], mRot.m[1][2]);
 	m_up.Normalize();
-	/*m_moveSpeed.x = Pad(0).GetLStickXF() * -7.0f;
 
-	m_moveSpeed.z = Pad(0).GetLStickYF() * 7.0f;
-
-	m_position += m_moveSpeed;
-
-	m_skinModelRender->SetPosition(m_position);*/
 
 	//移動処理。
 	Move();
 	Turn();
+	Jump_Up();
 	//ワールド行列を更新。
 	CQuaternion qBias;
 	qBias.SetRotationDeg(CVector3::AxisX, 180.0f);	//3dsMaxで設定されているアニメーションでキャラが回転しているので、補正を入れる。

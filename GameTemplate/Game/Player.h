@@ -7,6 +7,7 @@ public:
 	bool Start();
 	void Update();
 	void Move();
+	void Jump_Up();
 	void Turn();
 	CVector3 GetPos() {
 		return m_position;

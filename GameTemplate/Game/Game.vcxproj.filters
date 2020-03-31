@@ -96,4 +96,8 @@
   <ItemGroup>
     <Image Include="Assets\modelData\kresorcekin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\effect\awatest1.efk" />
+    <None Include="Assets\effect\awa1.efk" />
+  </ItemGroup>
 </Project>

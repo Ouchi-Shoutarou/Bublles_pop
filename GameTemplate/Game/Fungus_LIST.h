@@ -18,6 +18,8 @@ public:
 
 	void UpdateMove();
 
+	void UpdateSet();
+
 	std::vector<Fungus*> m_kinList;
 
 	std::vector<Wire*> m_wireList;

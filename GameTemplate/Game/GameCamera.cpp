@@ -138,46 +138,7 @@ void GameCamera::Update()
 
 	
 
-	////カメラを更新。
-	////注視点を計算する。
-	//CVector3 target = m_player->GetPos();
-	////プレイヤの足元からちょっと上を注視点とする。
-	//target.y += 80.0f;
-	//target += m_player->GetRight() * 30;
 
-	//CVector3 toCameraPosOld = m_toCameraPos;
-	////パッドの入力を使ってカメラを回す。
-	//float x = Pad(0).GetRStickXF();
-	//float y = Pad(0).GetRStickYF();
-	////Y軸周りの回転
-	//CQuaternion qRot;
-	//qRot.SetRotationDeg(CVector3::AxisY, 4.0f * x);
-	//qRot.Multiply(m_toCameraPos);
-	////X軸周りの回転。
-	//CVector3 axisX;
-	//axisX.Cross(CVector3::AxisY, m_toCameraPos);
-	//axisX.Normalize();
-	//qRot.SetRotationDeg(axisX, 4.0f * y);
-	//qRot.Multiply(m_toCameraPos);
-	////カメラの回転の上限をチェックする。
-	////注視点から視点までのベクトルを正規化する。
-	////正規化すると、ベクトルの大きさが１になる。
-	////大きさが１になるということは、ベクトルから強さがなくなり、方向のみの情報となるということ。
-	//CVector3 toPosDir = m_toCameraPos;
-	//toPosDir.Normalize();
-	//if (toPosDir.y < -0.5f) {
-	//	//カメラが上向きすぎ。
-	//	m_toCameraPos = toCameraPosOld;
-	//}
-	//else if (toPosDir.y > 0.8f) {
-	//	//カメラが下向きすぎ。
-	//	m_toCameraPos = toCameraPosOld;
-	//}
-
-	////視点を計算する。
-	//CVector3 pos = target + m_toCameraPos;
-	////メインカメラに注視点と視点を設定する。
-	////プレイヤーの横方向をとって、常にプレイヤーの右側にタゲが行くようにしようぜ
 
 	
 	//カメラの更新。

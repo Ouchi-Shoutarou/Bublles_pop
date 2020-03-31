@@ -71,7 +71,7 @@ protected:
 
 	int m_timer=0;
 
-	CVector3 fungus_position=CVector3::Zero;
+	CVector3 fungus_position = CVector3::Zero;
 	CVector3 midlle_speed;
 	CVector3 fungus_Speed ;
 

@@ -22,6 +22,7 @@ bool Wire::Start()
 
 	m_skin_wire->SetPosition(wire_position);
 	m_skin_wire->SetScale(m_scale);
+	m_skin_wire->SetRotation(qRot);
 
 
 	return true;

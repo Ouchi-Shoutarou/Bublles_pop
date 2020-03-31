@@ -89,22 +89,74 @@ void Fungus::Bond() {
 		if (this->IsDead()) {
 			return false;
 		}
+		if (kin->IsDead()) {
+			return true;
+		}
 
 
 		//２点間の距離を計算する。
 		CVector3 diff = kin->fungus_position - fungus_position;
-		if (diff.Length() < 20.0f * 3.0f) {	//距離が2000以下になったら。
-			//接触後の処理
-			/*if(!kin->IsDead()){
-				DeleteGO(kin);
-			}*/
+		if (diff.Length() < 20.0f * 5.0f) {	//距離が2000以下になったら。
 			m_kin = kin;
 
 
-		/*	m_wire = NewGO<Wire>(0, "wire");*/
+			m_wire = NewGO<Wire>(0, "wire");
+
+			//座標の設定。
+			m_wire->Set_position(fungus_position);
 
 
+			/////////////自分と相手の距離をベクトル化します。
+
+			CVector3 dir = { kin->GetPosition() - fungus_position };
+
+
+
+			////このベクトルの長さを求めてます。
+
+			float len = dir.Length();
+
+			m_wire->SetScale({ 1.0f,len/100,1.0f });
+
+		
+			///////求めたベクトルを正規化して、
+
+			dir.Normalize();
+			////////今あるベクトルとの外積を求めます。
+
+			CVector3 axisB;
 			
+
+			axisB.Cross(CVector3::AxisY, dir);
+			axisB.Normalize();
+
+			///////////////内積を求めます。
+
+			float Inner_Product = CVector3::AxisY.Dot(dir);
+			//念のための非数防止。
+			Inner_Product = max(-1.0f, min(1.0f, Inner_Product));
+
+			//cosθからラジアン単位に変換。
+			float Inner_Product_A = acos(Inner_Product);
+			
+			//回転する方向を決める。
+			float dirDot = CVector3::AxisX.Dot(dir);
+
+			if (dirDot < 0.0f) {
+				Inner_Product_A *= -1.0f;
+			}
+
+			CQuaternion q_Rot;
+			q_Rot.SetRotation(axisB,Inner_Product_A);
+			q_Rot.Multiply(CQuaternion::Identity);
+
+			m_wire->Set_Rotation(q_Rot);
+
+
+
+	
+
+
 
 			///////////自分自身がグループに属しているか？
 
@@ -117,12 +169,19 @@ void Fungus::Bond() {
 				k_list = NewGO<Fungus_LIST>(0, "list");
 
 				k_list->m_kinList.push_back(this);
-			
-				
-
+		
 
 			}
 		
+
+
+		
+
+				
+		  //////リストクラスのワイヤーのクラスに代入する。
+
+
+			k_list->m_wireList.push_back(m_wire);
 
 
 			
@@ -137,6 +196,8 @@ void Fungus::Bond() {
 			
 				k_list->m_kinList.push_back(kin);
 				kin->k_list = k_list;
+
+				
 
 
 
@@ -155,12 +216,29 @@ void Fungus::Bond() {
 						kin->Get_Belonging_List()->m_kinList[i]
 					);
 
-					k_list->UpdateMove();
+				
 
 				}
+
+				for (int i = 0; i < kin->Get_Belonging_List()->m_wireList.size(); i++) {
+
+					k_list->m_wireList.push_back(
+
+						kin->Get_Belonging_List()->m_wireList[i]
+					);
+
+					
+
+				}	
+				
+				k_list->UpdateMove();
+
 				/////古いグループを削除します。
 
 				DeleteGO(kin->Get_Belonging_List());
+				 
+
+				/////
 
 				for (int i = 0; i < k_list->m_kinList.size();i++) {
 
@@ -175,9 +253,6 @@ void Fungus::Bond() {
 
 		
 
-		
-
-		/*	DeleteGO(this);*/
 			return false;
 		}
 		return true;

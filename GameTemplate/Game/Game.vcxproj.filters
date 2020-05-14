@@ -73,6 +73,9 @@
     <MeshContentTask Include="Assets\modelData\kakukin.FBX" />
     <MeshContentTask Include="Assets\modelData\flame.FBX" />
     <MeshContentTask Include="Assets\modelData\bond.FBX" />
+    <MeshContentTask Include="Assets\modelData\yokusou.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">

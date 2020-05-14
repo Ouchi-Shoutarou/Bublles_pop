@@ -14,7 +14,7 @@ Stage::~Stage()
 bool Stage::Start()
 {
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
-	m_skinModelRender->Init(L"modelData/ita.cmo");
+	m_skinModelRender->Init(L"modelData/yokusou.cmo");
 	m_position = { 0,0,0 };
 	m_skinModelRender->SetPosition(m_position);
 	ita.CreateMesh(CVector3::Zero, CQuaternion::Identity, CVector3::One, m_skinModelRender);

@@ -18,7 +18,7 @@ bool GameCamera::Start()
 	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	m_spriteRender->Init(L"sprite/真カーソル.dds", 1280, 720);
 	m_spriteRender->SetPivot({0.5f, 0.5f});
-
+	m_spriteRender->SetPosition({0.0f,150.0f,0.0f});
 	//プレイヤーのインスタンスを探す。
 	m_player = FindGO<Player>("プレイヤー");
 
@@ -49,6 +49,8 @@ bool GameCamera::Start()
 
 	to_P_T *= 150.0f;
 
+
+	to_P_T.y -= 30.0f;
 
 	return true;
 }
@@ -87,7 +89,7 @@ void GameCamera::Update()
 		 /////////これをいい位置に拡大する。
 
 
-	 to_T_C *= 3.0f;
+	 to_T_C *= 2.0f;
 
 
 
@@ -126,6 +128,8 @@ void GameCamera::Update()
 	 ////////////プレイヤーの位置にpとぉたしたものがターゲット
 	 ////////////上の結果にｔｃを足したものがカメラの位置。
 
+	
+ 
      Camera_target = m_player->GetPos() - to_P_T;
 	 Camera_pos = Camera_target +to_T_C; 
 

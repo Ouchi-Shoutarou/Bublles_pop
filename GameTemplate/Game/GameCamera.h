@@ -14,10 +14,10 @@ public:
 	Player* m_player = nullptr;
 
 	CVector3 Camera_target = CVector3::Zero;
-	CVector3 Camera_Basic_Target = CVector3::Zero;
+	CVector3 Camera_pos = CVector3::Zero;
 
-	CVector3 to_P_T=CVector3 ::Zero;
-	CVector3 to_P_C = CVector3::Zero;
+	CVector3 to_P_T = {-1.0f,0.0f,0.0f};
+	CVector3 to_T_C = CVector3::Zero;
 
 	
 

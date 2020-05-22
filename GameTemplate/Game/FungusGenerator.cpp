@@ -28,7 +28,7 @@ bool FungusGenerator::Start()
 
 		if (objData.EqualObjectName(L"kkin") == true) {
 
-			k_position = objData.position;;
+			k_position = objData.position;
 
 			return true;
 		}

@@ -17,7 +17,7 @@ bool Stage::Start()
 {
 	/////ステージの倍率を調整。
 
-	Stage_Scale *= 4.0f;
+	Stage_Scale *= 5.0f;
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 /////	m_skinModelRender->Init(L"modelData/yokusou.cmo");

@@ -20,7 +20,7 @@ bool Stage::Start()
 	Stage_Scale *= 4.0f;
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
-	m_skinModelRender->Init(L"modelData/yokusou.cmo");
+/////	m_skinModelRender->Init(L"modelData/yokusou.cmo");
 	m_skinModelRender->SetScale( Stage_Scale );
 
 	m_position = { 0,0,0 };

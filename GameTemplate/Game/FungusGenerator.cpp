@@ -8,10 +8,11 @@
 #include "Bond_Fungus.h"
 
 bool FungusGenerator::Start()
-{
+{////‚±‚±‚ÅƒŒƒxƒ‹‚µ‚Ü‚µ‚½B
 	m_level.Init(L"level/kinlevelme.tkl", [&](LevelObjectData& objData) {
 
 
+		
 		if (objData.EqualObjectName(L"kamekin") == true) {
 
 			me_position=objData.position;

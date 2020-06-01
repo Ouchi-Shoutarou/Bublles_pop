@@ -1763,6 +1763,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bond_Fungus.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Core_A.cpp" />
     <ClCompile Include="Fungus.cpp" />
     <ClCompile Include="FungusGenerator.cpp" />
@@ -1802,6 +1803,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bond_Fungus.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Core_A.h" />
     <ClInclude Include="Fungus.h" />
     <ClInclude Include="FungusGenerator.h" />

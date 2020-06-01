@@ -55,7 +55,7 @@ void FungusGenerator::Update()
 	fungus_number++;*/
 	generator_timer++;
 
-
+#if 1 
 	if (generator_timer % 40 == 0) {
 		Generator_Fungus();
 	}
@@ -63,6 +63,17 @@ void FungusGenerator::Update()
 	if (generator_timer == 90000) {
 		generator_timer = 0;
 	}
+#else
+	if (generator_timer == 100) {
+		Kfungus* k_fungus = NewGO<Kfungus>(0, "fungus");
+		k_fungus->SetPosition(k_position);
+	}
+	if (generator_timer == 500) {
+		MeFungus* me_fungus = NewGO<MeFungus>(0, "fungus");
+		me_fungus->SetPosition(k_position);
+	}
+#endif
+
 }
 
 void FungusGenerator::Generator_Fungus()

@@ -25,7 +25,7 @@ bool Kfungus::Start()
 
 void Kfungus::Update()
 {
-
+	
 	Move();
 	Bond();
 

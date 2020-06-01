@@ -106,6 +106,7 @@ void Fungus::Bond() {
 			//////////モンスターナンバーに応じてもんすーを召喚。
 
 
+
 			////////////ｋ菌がいないとアクションはないので先に選別をしておく。
 
 			if (result_monster_number==1&& kin->Get_Result_Monster_number() ==1) {
@@ -134,14 +135,25 @@ void Fungus::Bond() {
 
 				////////////この場合リストは廃棄される。
 			    ///自分が所属しているリストにあるインスタンスも破棄します。
-				if (k_list != nullptr) {
+				if (k_list != nullptr) ////////リストがまだ作られていなかったら。→自分はどこにも所属してなかったら。
+				
+				{
 					for (int i = 0; i < k_list->m_kinList.size(); i++)
 					{
 
 						DeleteGO(k_list->m_kinList[i]);
-
-
 					}
+					
+					
+					for (int i = 0; i <k_list->m_wireList.size(); i++) {
+
+					DeleteGO(k_list->m_wireList[i]);
+
+				}
+					///自分が所属しているリストを崩壊させます。
+				
+					DeleteGO(k_list);
+
 				}
 
 				///相手が所属していたリストにあるインスタンスも破壊します。
@@ -151,34 +163,24 @@ void Fungus::Bond() {
 
 						DeleteGO(kin->Get_Belonging_List()->m_kinList[i]);
 
-
 					}
-				}
 
 
-				/////////////相手が所属していたリストのワイヤーもすべて消去。
+					/////////////相手が所属していたリストのワイヤーもすべて消去。
 
-				for (int i = 0; i <k_list->m_wireList.size(); i++) {
-
-					DeleteGO(k_list->m_wireList[i]);
-
-				}
-
-
-				/////////////相手が所属していたリストのワイヤーもすべて消去。
-
-				for (int i = 0; i < kin->Get_Belonging_List()->m_wireList.size(); i++) {
+					for (int i = 0; i < kin->Get_Belonging_List()->m_wireList.size(); i++) {
 
 						DeleteGO(kin->Get_Belonging_List()->m_wireList[i]);
 
+					}
+
+
+
+					///相手が所属しているリストを崩壊します。
+
+					DeleteGO(kin->k_list);
 				}
 
-
-				///自分が所属しているリストを崩壊させます。
-				DeleteGO(k_list);
-				///相手が所属しているリストを崩壊します。
-
-				DeleteGO(kin->k_list);
 			
 				return true;
 

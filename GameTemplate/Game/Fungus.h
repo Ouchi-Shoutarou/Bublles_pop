@@ -65,6 +65,12 @@ void SetSkinModel();
 	}
 
 
+	int Get_Result_Monster_number() {
+
+
+		return 	result_monster_number;
+	}
+
 protected:
 
 	prefab::CSkinModelRender* m_skin = nullptr;
@@ -77,7 +83,9 @@ protected:
 
 	CVector3 NewSpeed;
 
+	///////Œ‹‰Ê”Å
 
+	int result_monster_number = 0;
 
 	//////wireƒNƒ‰ƒX‚ğì¬‚µ‚Ü‚·B
 

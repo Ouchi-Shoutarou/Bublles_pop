@@ -18,6 +18,9 @@ bool GFungus::Start()
 
 	m_skin->Init(L"ModelData/gkin.cmo");
 
+	result_monster_number = 2;
+
+
 	return true;
 
 }

@@ -97,7 +97,93 @@ void Fungus::Bond() {
 		//２点間の距離を計算する。
 		CVector3 diff = kin->fungus_position - fungus_position;
 		if (diff.Length() < 20.0f * 5.0f) {	//距離が2000以下になったら。
+
+
 			m_kin = kin;
+
+			////////生成モンスターの作成。
+
+			//////////モンスターナンバーに応じてもんすーを召喚。
+
+
+			////////////ｋ菌がいないとアクションはないので先に選別をしておく。
+
+			if (result_monster_number==1&& kin->Get_Result_Monster_number() ==1) {
+				
+
+
+			/////////ｋ菌(mostere_number=1)とg菌(mostere_number=2)が融合すればゴキブリが生成されます。
+
+
+				if (result_monster_number + kin->Get_Result_Monster_number() == 3) {
+					///////ゴキブリを生成する。
+
+
+
+				}
+				/////////ｋ菌(mostere_number=1)とme菌(mostere_number=3)が融合すればカメムシが生成されます。
+
+
+				if (result_monster_number + kin->Get_Result_Monster_number() == 4) {
+					///////カメムシを生成する。
+
+
+
+				}
+
+
+				////////////この場合リストは廃棄される。
+			    ///自分が所属しているリストにあるインスタンスも破棄します。
+				if (k_list != nullptr) {
+					for (int i = 0; i < k_list->m_kinList.size(); i++)
+					{
+
+						DeleteGO(k_list->m_kinList[i]);
+
+
+					}
+				}
+
+				///相手が所属していたリストにあるインスタンスも破壊します。
+				if (kin->Get_Belonging_List() != nullptr) {
+					for (int i = 0; i < kin->Get_Belonging_List()->m_kinList.size(); i++)
+					{
+
+						DeleteGO(kin->Get_Belonging_List()->m_kinList[i]);
+
+
+					}
+				}
+
+
+				/////////////相手が所属していたリストのワイヤーもすべて消去。
+
+				for (int i = 0; i <k_list->m_wireList.size(); i++) {
+
+					DeleteGO(k_list->m_wireList[i]);
+
+				}
+
+
+				/////////////相手が所属していたリストのワイヤーもすべて消去。
+
+				for (int i = 0; i < kin->Get_Belonging_List()->m_wireList.size(); i++) {
+
+						DeleteGO(kin->Get_Belonging_List()->m_wireList[i]);
+
+				}
+
+
+				///自分が所属しているリストを崩壊させます。
+				DeleteGO(k_list);
+				///相手が所属しているリストを崩壊します。
+
+				DeleteGO(kin->k_list);
+			
+				return true;
+
+
+			}
 
 
 			m_wire = NewGO<Wire>(0, "wire");
@@ -105,6 +191,8 @@ void Fungus::Bond() {
 			//座標の設定。
 			m_wire->Set_position(fungus_position);
 
+
+		
 
 			/////////////自分と相手の距離をベクトル化します。
 
@@ -152,12 +240,6 @@ void Fungus::Bond() {
 
 			m_wire->Set_Rotation(q_Rot);
 
-
-
-	
-
-
-
 			///////////自分自身がグループに属しているか？
 
 			/////いいえ
@@ -171,21 +253,10 @@ void Fungus::Bond() {
 				k_list->m_kinList.push_back(this);
 		
 
-			}
-		
-
-
-		
-
-				
+			}	
 		  //////リストクラスのワイヤーのクラスに代入する。
-
-
 			k_list->m_wireList.push_back(m_wire);
 
-
-			
-	
 
 			////相手がリストに属しているか？
 			///いいえ
@@ -195,9 +266,12 @@ void Fungus::Bond() {
 				////自分が所属しているリストに相手のポインタを代入します。
 			
 				k_list->m_kinList.push_back(kin);
-				kin->k_list = k_list;
 
-				
+
+				///////相手のリストのポインタに自分のリストのポインタを代入します。
+				//////相手に自分の所属先を伝える。
+
+				kin->k_list = k_list;
 
 
 

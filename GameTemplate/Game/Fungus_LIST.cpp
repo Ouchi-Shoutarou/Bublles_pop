@@ -51,6 +51,12 @@ void Fungus_LIST::UpdateMove() {
 	NewSpeed /= m_kinList.size();
 
 
+	///////菌に関する処理で
+	/////ここに菌のインスタンスをリスとに積む。
+
+
+	
+
 	for (int i = 0; i < m_kinList.size(); i++)
 	{	
 		m_kinList[i]->Set_Speed(NewSpeed);

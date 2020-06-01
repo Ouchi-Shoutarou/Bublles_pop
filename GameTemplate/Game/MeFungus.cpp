@@ -15,6 +15,8 @@ bool MeFungus::Start()
 
 	m_skin->Init(L"ModelData/kamekin.cmo");
 
+	result_monster_number = 3;
+
 	return true;
 
 }

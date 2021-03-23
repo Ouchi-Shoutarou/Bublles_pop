@@ -21,7 +21,7 @@ public:
 	CVector3 to_T_C = CVector3::Zero;
 
 	
-
+	float hight = 0.0f;
 
 
 

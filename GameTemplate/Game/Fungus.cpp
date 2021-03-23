@@ -53,7 +53,7 @@ void Fungus::Move()
 
 		if (m_timer == 400) {
 
-			DeleteGO(this);
+			//DeleteGO(this);
 		}
 
 
@@ -64,6 +64,7 @@ void Fungus::Move()
 
 void Fungus::Bond() {	
 	//PlayerBulletという名前のゲームオブジェクトに対してクエリ(問い合わせ)を行う。
+	//kinListを作成するためのクエリ。
 	QueryGOs<Fungus>("fungus", [&](Fungus* kin) {
 		
 		
@@ -106,84 +107,10 @@ void Fungus::Bond() {
 			//////////モンスターナンバーに応じてもんすーを召喚。
 
 
+
 			////////////ｋ菌がいないとアクションはないので先に選別をしておく。
 
-			if (result_monster_number==1&& kin->Get_Result_Monster_number() ==1) {
-				
-
-
-			/////////ｋ菌(mostere_number=1)とg菌(mostere_number=2)が融合すればゴキブリが生成されます。
-
-
-				if (result_monster_number + kin->Get_Result_Monster_number() == 3) {
-					///////ゴキブリを生成する。
-
-
-
-				}
-				/////////ｋ菌(mostere_number=1)とme菌(mostere_number=3)が融合すればカメムシが生成されます。
-
-
-				if (result_monster_number + kin->Get_Result_Monster_number() == 4) {
-					///////カメムシを生成する。
-
-
-
-				}
-
-
-				////////////この場合リストは廃棄される。
-			    ///自分が所属しているリストにあるインスタンスも破棄します。
-				if (k_list != nullptr) {
-					for (int i = 0; i < k_list->m_kinList.size(); i++)
-					{
-
-						DeleteGO(k_list->m_kinList[i]);
-
-
-					}
-				}
-
-				///相手が所属していたリストにあるインスタンスも破壊します。
-				if (kin->Get_Belonging_List() != nullptr) {
-					for (int i = 0; i < kin->Get_Belonging_List()->m_kinList.size(); i++)
-					{
-
-						DeleteGO(kin->Get_Belonging_List()->m_kinList[i]);
-
-
-					}
-				}
-
-
-				/////////////相手が所属していたリストのワイヤーもすべて消去。
-
-				for (int i = 0; i <k_list->m_wireList.size(); i++) {
-
-					DeleteGO(k_list->m_wireList[i]);
-
-				}
-
-
-				/////////////相手が所属していたリストのワイヤーもすべて消去。
-
-				for (int i = 0; i < kin->Get_Belonging_List()->m_wireList.size(); i++) {
-
-						DeleteGO(kin->Get_Belonging_List()->m_wireList[i]);
-
-				}
-
-
-				///自分が所属しているリストを崩壊させます。
-				DeleteGO(k_list);
-				///相手が所属しているリストを崩壊します。
-
-				DeleteGO(kin->k_list);
 			
-				return true;
-
-
-			}
 
 
 			m_wire = NewGO<Wire>(0, "wire");
@@ -247,6 +174,9 @@ void Fungus::Bond() {
 			if (k_list == nullptr) {
 				
 				////////////共通リストを作成します。
+				char log[512];
+				sprintf(log, "address = %x\n", this);
+				OutputDebugStringA(log);
 
 				k_list = NewGO<Fungus_LIST>(0, "list");
 
@@ -330,6 +260,90 @@ void Fungus::Bond() {
 			return false;
 		}
 		return true;
+		}
+	);
+	//削除処理
+	QueryGOs<Fungus>("fungus", [&](Fungus* kin) {
+		if (kin == this) {
+			return true;
+		}
+		if (result_monster_number == 1 || kin->Get_Result_Monster_number() == 1) {
+
+
+
+			/////////ｋ菌(mostere_number=1)とg菌(mostere_number=2)が融合すればゴキブリが生成されます。
+
+
+			if (result_monster_number + kin->Get_Result_Monster_number() == 3) {
+				///////ゴキブリを生成する。
+
+
+
+			}
+			/////////ｋ菌(mostere_number=1)とme菌(mostere_number=3)が融合すればカメムシが生成されます。
+
+
+			if (result_monster_number + kin->Get_Result_Monster_number() == 4) {
+				///////カメムシを生成する。
+
+
+
+			}
+
+
+			////////////この場合リストは廃棄される。
+			///自分が所属しているリストにあるインスタンスも破棄します。
+			if (k_list != nullptr) ////////リストがまだ作られていなかったら。→自分はどこにも所属してなかったら。
+
+			{
+				for (int i = 0; i < k_list->m_kinList.size(); i++)
+				{
+
+					DeleteGO(k_list->m_kinList[i]);
+				}
+
+
+				for (int i = 0; i < k_list->m_wireList.size(); i++) {
+
+					DeleteGO(k_list->m_wireList[i]);
+
+				}
+				///自分が所属しているリストを崩壊させます。
+
+				DeleteGO(k_list);
+
+			}
+
+			///相手が所属していたリストにあるインスタンスも破壊します。
+			if (kin->Get_Belonging_List() != nullptr) {
+				for (int i = 0; i < kin->Get_Belonging_List()->m_kinList.size(); i++)
+				{
+
+					DeleteGO(kin->Get_Belonging_List()->m_kinList[i]);
+
+				}
+
+
+				/////////////相手が所属していたリストのワイヤーもすべて消去。
+
+				for (int i = 0; i < kin->Get_Belonging_List()->m_wireList.size(); i++) {
+
+					DeleteGO(kin->Get_Belonging_List()->m_wireList[i]);
+
+				}
+
+
+
+				///相手が所属しているリストを崩壊します。
+
+				DeleteGO(kin->k_list);
+			}
+
+
+			return true;
+
+
+		}
 		}
 	);
 }

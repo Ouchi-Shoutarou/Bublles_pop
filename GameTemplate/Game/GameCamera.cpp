@@ -63,8 +63,11 @@ void GameCamera::Update()
 
 
 	float x = Pad(0).GetRStickXF();
-	float y = Pad(0).GetRStickYF();
+    float y = Pad(0).GetRStickYF();
 
+
+
+	
 
 	//Y軸周りの回転
 	CQuaternion qRot;
@@ -135,7 +138,13 @@ void GameCamera::Update()
 
 
 	 Camera_pos.y += 50.0f;
+	 
 
+	 y *= 3;
+
+	 hight += y;
+
+	 Camera_target.y += hight;
 
 	//メインカメラに注視点と視点を設定する。
 	MainCamera().SetTarget(Camera_target);

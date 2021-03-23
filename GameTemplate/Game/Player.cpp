@@ -48,8 +48,8 @@ void Player::Move()
 	m_moveSpeed.x = 0.0f;
 	m_moveSpeed.z = 0.0f;
 	m_moveSpeed.y -= 980.0f * GameTime().GetFrameDeltaTime();
-	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
-	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
+	m_moveSpeed += cameraForward * lStick_y * 300.0f;	//奥方向への移動速度を加算。
+	m_moveSpeed += cameraRight * lStick_x * 300.0f;		//右方向への移動速度を加算。
 
 	if (Pad(0).IsTrigger(enButtonA) //Aボタンが押されたら
 		&& m_charaCon.IsOnGround()  //かつ、地面に居たら
@@ -58,6 +58,14 @@ void Player::Move()
 		m_moveSpeed.y = 400.0f;	//上方向に速度を設定して、
 	}
 
+	if (Pad(0).IsTrigger(enButtonB))
+	{
+		m_bullet = NewGO<Bullet>(0);
+		m_bullet->m_position = m_position;
+		m_bullet->m_position.y += 60.0f;
+		m_bullet->SetDirection(cameraForward);
+
+	}
 	m_position = m_charaCon.Execute(m_moveSpeed);
 }
 
@@ -143,7 +151,12 @@ void Player::Update()
 	qBias.SetRotationDeg(CVector3::AxisX, 180.0f);	//3dsMaxで設定されているアニメーションでキャラが回転しているので、補正を入れる。
 	m_skinModelRender->SetPosition(m_position);
 	m_skinModelRender->SetRotation(qRot);
+	//プレイヤーの前ベクトルを計算する。
+	//CVector3 frontBase = { 0, 0, 1 };
+	//qRotを使ってfrontBaseを回して現在の前ベクトルを計算する。
+	//Applyを見る
 
+	//pRotを使ってfrontBaseを回したものの方向に弾を発射する。
 
 }
 

@@ -1830,6 +1830,7 @@
     <MeshContentTask Include="Assets\modelData\ita.FBX" />
     <MeshContentTask Include="Assets\modelData\kakukin.FBX" />
     <MeshContentTask Include="Assets\modelData\kkin.FBX" />
+    <MeshContentTask Include="Assets\modelData\tama.FBX" />
     <MeshContentTask Include="Assets\modelData\Tkin.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
     <MeshContentTask Include="Assets\modelData\yokusou.FBX" />

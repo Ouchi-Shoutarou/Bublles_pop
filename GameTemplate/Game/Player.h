@@ -1,4 +1,5 @@
 #pragma once
+#include "Bullet.h"
 class Player :public IGameObject
 {
 public:
@@ -23,6 +24,7 @@ public:
 		return qRot;
 	}
 
+	Bullet* m_bullet = nullptr;
 private:
 	prefab::CSkinModelRender* m_skinModelRender = nullptr; 
 	CVector3 m_moveSpeed = CVector3::Zero;
